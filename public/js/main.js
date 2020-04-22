@@ -6,5 +6,3 @@
 // } else {
 //     navBack.style.background = '#00B5B5';
 // }
-
-// show label on focus, hide on blur

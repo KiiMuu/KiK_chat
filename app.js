@@ -21,6 +21,8 @@ const store = new MongoDBStore({
 // get routes
 const usersRoutes = require('./routes/users');
 
+require('./passport/passport-local');
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'assets')));
 app.use('/img', express.static(path.join(__dirname, 'img')));
