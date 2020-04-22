@@ -30,7 +30,7 @@ passport.use('local.signup', new LocalStrategy({
         const newUser = new User({
             username: req.body.username,
             email: req.body.email,
-            password: req.body.password
+            password: newUser.encryptPassword(req.body.password)
         });
 
         newUser.save(err => {
