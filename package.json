@@ -1,0 +1,46 @@
+{
+  "name": "chat-app",
+  "version": "1.0.0",
+  "description": "A chat application built with Node, MongoDB, Express and Socket.io",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KiiMuu/KiK_chat.git"
+  },
+  "author": "K!M",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KiiMuu/KiK_chat/issues"
+  },
+  "homepage": "https://github.com/KiiMuu/KiK_chat#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.7.0",
+    "gulp-livereload": "^4.0.2",
+    "gulp-nodemon": "^2.5.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-watch": "^5.0.1",
+    "node-sass": "^4.13.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "connect-mongodb-session": "^2.3.1",
+    "cookie-parser": "^1.4.5",
+    "ejs": "^3.0.2",
+    "express": "^4.17.1",
+    "express-promise-router": "^3.0.3",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.4.0",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.9.10",
+    "nodemon": "^2.0.3",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
+  }
+}
