@@ -18,6 +18,16 @@ const store = new MongoDBStore({
     collection: 'sessions'
 });
 
+// connect to mongodb
+mongoose.connect(MONGO_URI, { 
+    useNewUrlParser: true,
+    useUnifiedTopology: true 
+}).then(() => {
+    console.log('MongoDB connected');
+}).catch(err => {
+    console.log(err);
+});
+
 // get routes
 const usersRoutes = require('./routes/users');
 
@@ -26,7 +36,6 @@ require('./config/passport-local');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'assets')));
 app.use('/img', express.static(path.join(__dirname, 'img')));
-app.use(express.static('public'));
 app.use(cookieParser());
 // app.use(validator());
 app.use(session({
@@ -46,15 +55,8 @@ app.set('views', 'views');
 // use routes
 app.use(usersRoutes);
 
-// mongodb connection
-mongoose.connect(MONGO_URI, { 
-    useNewUrlParser: true,
-    useUnifiedTopology: true 
-}).then(result => {
-    const PORT = process.env.PORT || 3000;
-    app.listen(PORT, () => {
-        console.log(`App is up on port ${PORT}`);
-    });
-}).catch(err => {
-    console.log(err);
+// app listen
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+    console.log(`App is up on port ${PORT}`);
 });

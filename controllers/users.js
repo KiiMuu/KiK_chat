@@ -14,10 +14,8 @@ exports.getSignUp = (req, res, next) => {
     res.render('auth/signup');
 }
 
-exports.postSignUp = (req, res, next) => {
-    passport.authenticate('local.signup', {
-        successRedirect: '/home',
-        failureRedirect: 'auth/signup',
-        failureFlash: true
-    });
-}
+exports.postSignUp = passport.authenticate('local.signup', {
+    successRedirect: '/home',
+    failureRedirect: '/auth/signup',
+    failureFlash: true
+})

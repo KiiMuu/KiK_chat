@@ -1,7 +1,6 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
-// Models
 const User = require('../models/user');
 
 // get user ID && set it in the session
@@ -21,20 +20,25 @@ passport.use('local.signup', new LocalStrategy({
     passReqToCallback: true
 }, (req, email, password, done) => {
     User.findOne({ 'email': email }, (err, user) => {
-        if (err) return done(err);
+        if (err) { 
+            return done(err); 
+        }
 
         // user exist
-        if (user) return(null, false, req.flash('error', 'User already exist'));
+        if (user) { 
+            return(null, false, req.flash('error', 'User already exist')); 
+        }
 
         // create a new user
-        const newUser = new User({
-            username: req.body.username,
-            email: req.body.email,
-            password: newUser.encryptPassword(req.body.password)
-        });
+        let newUser = new User();
+        newUser.username = req.body.username;
+        newUser.email = req.body.email;
+        newUser.password = newUser.encryptPassword(req.body.password);
 
-        newUser.save(err => {
-            done(null, newUser);
+        newUser.save((err, result) => {
+            if (err) return done(err);
+            
+            return done(null, newUser);
         });
     });
 }));
