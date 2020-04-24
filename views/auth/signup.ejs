@@ -10,31 +10,55 @@
                 <p class="uk-text-muted">Sign Up to chat with onliners.</p>
             </div>
             <div class="inputs uk-container uk-container-xsmall uk-margin-medium-top">
-                <form action="/signup" method="POST">
+                <form action="/signup" method="POST" novalidate>
                     <div class="uk-grid-small uk-child-width-1-1@s" uk-grid>
                         <div class="input">
                             <input 
-                                class="uk-input" 
+                                class="uk-input <%= validationErrors.find(e => e.param === 'username') ? 'input-error' : '' %>" 
                                 type="text" 
                                 name="username" 
                                 placeholder="Username, E.g. jhon doe"
+                                value="<%= oldInputs.username %>"
                             >
+                            <% validationErrors.forEach(e => { %>
+                                <% if (e.param === 'username') { %>
+                                    <div class="invalid-feedback">
+                                        <%= e.msg %>
+                                    </div>
+                                <% } %>
+                            <% }) %>
                         </div>
                         <div class="input">
                             <input 
-                                class="uk-input"  
+                                class="uk-input <%= validationErrors.find(e => e.param === 'email') ? 'input-error' : '' %>"  
                                 type="email" 
                                 name="email" 
                                 placeholder="Email, E.g. jhon@doe.com"
+                                value="<%= oldInputs.email %>"
                             >
+                            <% validationErrors.forEach(e => { %>
+                                <% if (e.param === 'email') { %>
+                                    <div class="invalid-feedback">
+                                        <%= e.msg %>
+                                    </div>
+                                <% } %>
+                            <% }) %>
                         </div>
                         <div class="input">
                             <input 
-                                class="uk-input"  
+                                class="uk-input <%= validationErrors.find(e => e.param === 'password') ? 'input-error' : '' %>"  
                                 type="password" 
                                 name="password" 
                                 placeholder="Password"
+                                value="<%= oldInputs.password %>"
                             >
+                            <% validationErrors.forEach(e => { %>
+                                <% if (e.param === 'password') { %>
+                                    <div class="invalid-feedback">
+                                        <%= e.msg %>
+                                    </div>
+                                <% } %>
+                            <% }) %>
                         </div>
                     </div>
                     <div class="signup-control">

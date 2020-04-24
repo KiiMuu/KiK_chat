@@ -3,7 +3,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const cookieParser = require('cookie-parser');
-const validator = require('express-validator');
+// const validator = require('express-validator');
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 const mongoose = require('mongoose');
@@ -35,9 +35,9 @@ require('./config/passport-local');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'assets')));
+// app.use(express.static(path.join(__dirname, 'helpers')));
 app.use('/img', express.static(path.join(__dirname, 'img')));
 app.use(cookieParser());
-// app.use(validator());
 app.use(session({
     secret: 'mustbesecrethuh',
     resave: false,
@@ -45,6 +45,7 @@ app.use(session({
     store
 }));
 app.use(flash());
+// app.use(validator());
 app.use(passport.initialize());
 app.use(passport.session());
 

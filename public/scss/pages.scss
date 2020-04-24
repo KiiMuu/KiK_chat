@@ -1,8 +1,10 @@
 // signup style
-.signup {
-    .signup-img {
-        background: url('/img/signup.svg') no-repeat;
+.signup, .signin {
+    .signup-img, .signin-img {
+        background: url('/img/signup.svg');
+        background-position: 50% 50%;
         background-size: cover;
+        background-repeat: no-repeat;
         position: relative;
         a {
             position: fixed;
@@ -22,8 +24,7 @@
             }
         }
     }
-    .signup-form {
-        // padding: 0 30px;
+    .signup-form, .signin-form {
         .form-heading {
             h2 {
                 color: #000;
@@ -46,7 +47,7 @@
                 height: 50px;
                 font-size: 17px;
                 color: #777;
-                margin-top: 7px;
+                margin-top: 0;
                 border: 1px solid #ced4da;
                 outline: none;
                 transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
@@ -61,7 +62,22 @@
                     box-shadow: 0 0 0 0.25rem rgba(0,123,255,.25);
                 }
             }
-            .signup-control {
+            .input {
+                .input-error {
+                    border: 1px solid #dc3545 !important;
+                    &:focus {
+                        border-color: #dc3545 !important;
+                        box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, .25) !important;
+                    }
+                }
+                .invalid-feedback {
+                    width: 100%;
+                    margin-top: .25rem;
+                    font-size: 80%;
+                    color: #dc3545;
+                }
+            }
+            .signup-control, .signin-control {
                 margin-top: 20px;
                 .signup-btn, .signin-btn {
                     button, a {
@@ -94,10 +110,18 @@
                         text-decoration: none;
                     }
                 }
-                .have-account {
+                .have-account, .create-account {
                     text-align: right;
                 }
             }
         }
     }
+}
+
+// sigin style
+.signin-img {
+    background: url('/img/signin.svg') no-repeat !important;
+    background-size: cover !important;
+    background-position: 50% 50% !important;
+    position: relative !important;
 }

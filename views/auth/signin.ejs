@@ -1,9 +1,50 @@
 <%- include('../includes/head.ejs') %>
-<%- include('../includes/navigation.ejs') %>
 <div class="signin">
-    <div class="uk-container">
-        <span>Sign In</span>
+    <div class="uk-grid-small uk-child-width-1-2@m uk-flex uk-flex-stretch" uk-grid>
+        <div class="signin-img" uk-height-viewport="offset-top: true">
+            <a href="/" title="Go Back" class=""><i class="fa fa-long-arrow-left"></i></a>
+        </div>
+        <div class="signin-form uk-box-shadow-large uk-padding-large">
+            <div class="form-heading uk-text-center">
+                <h2 class="uk-text-uppercase">Welcome back</h2>
+                <p class="uk-text-muted">Sign In to communicate with your acquaintances.</p>
+            </div>
+            <div class="inputs uk-container uk-container-xsmall uk-margin-medium-top">
+                <form action="/signin" method="POST" novalidate>
+                    <div class="uk-grid-small uk-child-width-1-1@s" uk-grid>
+                        <div class="input">
+                            <input 
+                                class="uk-input"  
+                                type="email" 
+                                name="email" 
+                                placeholder="Email, E.g. jhon@doe.com"
+                            >
+                        </div>
+                        <div class="input">
+                            <input 
+                                class="uk-input"  
+                                type="password" 
+                                name="password" 
+                                placeholder="Password"
+                            >
+                        </div>
+                    </div>
+                    <div class="signin-control">
+                        <div class="uk-child-width-1-3@s uk-flex uk-flex-middle" uk-grid>
+                            <div class="signin-btn uk-text-left">
+                                <button type="submit">Sign In <i class="fa fa-long-arrow-right"></i></button>
+                            </div>
+                            <div class="or uk-text-center">
+                                <span class="uk-text-uppercase uk-text-muted">Or</span>
+                            </div>
+                            <div class="signin-btn uk-text-right">
+                                <a href="/signup">Sign Up <i class="fa fa-long-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
-<!-- <%- include('../includes/footer.ejs') %> -->
 <%- include('../includes/end.ejs') %>

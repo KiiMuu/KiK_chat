@@ -63,11 +63,13 @@ body, html {
 .footer p a {
   color: #00B5B5; }
 
-.signup .signup-img {
-  background: url("/img/signup.svg") no-repeat;
+.signup .signup-img, .signup .signin-img, .signin .signup-img, .signin .signin-img {
+  background: url("/img/signup.svg");
+  background-position: 50% 50%;
   background-size: cover;
+  background-repeat: no-repeat;
   position: relative; }
-  .signup .signup-img a {
+  .signup .signup-img a, .signup .signin-img a, .signin .signup-img a, .signin .signin-img a {
     position: fixed;
     top: 5%;
     left: 3%;
@@ -79,56 +81,68 @@ body, html {
     border-radius: 50%;
     text-align: center;
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.17); }
-    .signup .signup-img a i {
+    .signup .signup-img a i, .signup .signin-img a i, .signin .signup-img a i, .signin .signin-img a i {
       font-weight: 900;
       font-size: 18px; }
 
-.signup .signup-form .form-heading h2 {
+.signup .signup-form .form-heading h2, .signup .signin-form .form-heading h2, .signin .signup-form .form-heading h2, .signin .signin-form .form-heading h2 {
   color: #000;
   margin-bottom: 8px; }
-  .signup .signup-form .form-heading h2 .app-name {
+  .signup .signup-form .form-heading h2 .app-name, .signup .signin-form .form-heading h2 .app-name, .signin .signup-form .form-heading h2 .app-name, .signin .signin-form .form-heading h2 .app-name {
     font-weight: 900;
     color: #00B5B5; }
 
-.signup .signup-form .form-heading p {
+.signup .signup-form .form-heading p, .signup .signin-form .form-heading p, .signin .signup-form .form-heading p, .signin .signin-form .form-heading p {
   margin: 0; }
 
-.signup .signup-form .uk-container-xsmall {
+.signup .signup-form .uk-container-xsmall, .signup .signin-form .uk-container-xsmall, .signin .signup-form .uk-container-xsmall, .signin .signin-form .uk-container-xsmall {
   max-width: 450px; }
 
-.signup .signup-form .inputs .uk-input {
+.signup .signup-form .inputs .uk-input, .signup .signin-form .inputs .uk-input, .signin .signup-form .inputs .uk-input, .signin .signin-form .inputs .uk-input {
   width: 100%;
   height: 50px;
   font-size: 17px;
   color: #777;
-  margin-top: 7px;
+  margin-top: 0;
   border: 1px solid #ced4da;
   outline: none;
   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
   border-radius: 2px; }
-  .signup .signup-form .inputs .uk-input::-webkit-input-placeholder {
+  .signup .signup-form .inputs .uk-input::-webkit-input-placeholder, .signup .signin-form .inputs .uk-input::-webkit-input-placeholder, .signin .signup-form .inputs .uk-input::-webkit-input-placeholder, .signin .signin-form .inputs .uk-input::-webkit-input-placeholder {
     font-size: 15px;
     color: #aaa; }
-  .signup .signup-form .inputs .uk-input::-moz-placeholder {
+  .signup .signup-form .inputs .uk-input::-moz-placeholder, .signup .signin-form .inputs .uk-input::-moz-placeholder, .signin .signup-form .inputs .uk-input::-moz-placeholder, .signin .signin-form .inputs .uk-input::-moz-placeholder {
     font-size: 15px;
     color: #aaa; }
-  .signup .signup-form .inputs .uk-input:-ms-input-placeholder {
+  .signup .signup-form .inputs .uk-input:-ms-input-placeholder, .signup .signin-form .inputs .uk-input:-ms-input-placeholder, .signin .signup-form .inputs .uk-input:-ms-input-placeholder, .signin .signin-form .inputs .uk-input:-ms-input-placeholder {
     font-size: 15px;
     color: #aaa; }
-  .signup .signup-form .inputs .uk-input::-ms-input-placeholder {
+  .signup .signup-form .inputs .uk-input::-ms-input-placeholder, .signup .signin-form .inputs .uk-input::-ms-input-placeholder, .signin .signup-form .inputs .uk-input::-ms-input-placeholder, .signin .signin-form .inputs .uk-input::-ms-input-placeholder {
     font-size: 15px;
     color: #aaa; }
-  .signup .signup-form .inputs .uk-input::placeholder {
+  .signup .signup-form .inputs .uk-input::placeholder, .signup .signin-form .inputs .uk-input::placeholder, .signin .signup-form .inputs .uk-input::placeholder, .signin .signin-form .inputs .uk-input::placeholder {
     font-size: 15px;
     color: #aaa; }
-  .signup .signup-form .inputs .uk-input:focus {
+  .signup .signup-form .inputs .uk-input:focus, .signup .signin-form .inputs .uk-input:focus, .signin .signup-form .inputs .uk-input:focus, .signin .signin-form .inputs .uk-input:focus {
     background-color: #fff;
     border-color: #00B5B5;
     box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25); }
 
-.signup .signup-form .inputs .signup-control {
+.signup .signup-form .inputs .input .input-error, .signup .signin-form .inputs .input .input-error, .signin .signup-form .inputs .input .input-error, .signin .signin-form .inputs .input .input-error {
+  border: 1px solid #dc3545 !important; }
+  .signup .signup-form .inputs .input .input-error:focus, .signup .signin-form .inputs .input .input-error:focus, .signin .signup-form .inputs .input .input-error:focus, .signin .signin-form .inputs .input .input-error:focus {
+    border-color: #dc3545 !important;
+    box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25) !important; }
+
+.signup .signup-form .inputs .input .invalid-feedback, .signup .signin-form .inputs .input .invalid-feedback, .signin .signup-form .inputs .input .invalid-feedback, .signin .signin-form .inputs .input .invalid-feedback {
+  width: 100%;
+  margin-top: .25rem;
+  font-size: 80%;
+  color: #dc3545; }
+
+.signup .signup-form .inputs .signup-control, .signup .signup-form .inputs .signin-control, .signup .signin-form .inputs .signup-control, .signup .signin-form .inputs .signin-control, .signin .signup-form .inputs .signup-control, .signin .signup-form .inputs .signin-control, .signin .signin-form .inputs .signup-control, .signin .signin-form .inputs .signin-control {
   margin-top: 20px; }
-  .signup .signup-form .inputs .signup-control .signup-btn button, .signup .signup-form .inputs .signup-control .signup-btn a, .signup .signup-form .inputs .signup-control .signin-btn button, .signup .signup-form .inputs .signup-control .signin-btn a {
+  .signup .signup-form .inputs .signup-control .signup-btn button, .signup .signup-form .inputs .signup-control .signup-btn a, .signup .signup-form .inputs .signup-control .signin-btn button, .signup .signup-form .inputs .signup-control .signin-btn a, .signup .signup-form .inputs .signin-control .signup-btn button, .signup .signup-form .inputs .signin-control .signup-btn a, .signup .signup-form .inputs .signin-control .signin-btn button, .signup .signup-form .inputs .signin-control .signin-btn a, .signup .signin-form .inputs .signup-control .signup-btn button, .signup .signin-form .inputs .signup-control .signup-btn a, .signup .signin-form .inputs .signup-control .signin-btn button, .signup .signin-form .inputs .signup-control .signin-btn a, .signup .signin-form .inputs .signin-control .signup-btn button, .signup .signin-form .inputs .signin-control .signup-btn a, .signup .signin-form .inputs .signin-control .signin-btn button, .signup .signin-form .inputs .signin-control .signin-btn a, .signin .signup-form .inputs .signup-control .signup-btn button, .signin .signup-form .inputs .signup-control .signup-btn a, .signin .signup-form .inputs .signup-control .signin-btn button, .signin .signup-form .inputs .signup-control .signin-btn a, .signin .signup-form .inputs .signin-control .signup-btn button, .signin .signup-form .inputs .signin-control .signup-btn a, .signin .signup-form .inputs .signin-control .signin-btn button, .signin .signup-form .inputs .signin-control .signin-btn a, .signin .signin-form .inputs .signup-control .signup-btn button, .signin .signin-form .inputs .signup-control .signup-btn a, .signin .signin-form .inputs .signup-control .signin-btn button, .signin .signin-form .inputs .signup-control .signin-btn a, .signin .signin-form .inputs .signin-control .signup-btn button, .signin .signin-form .inputs .signin-control .signup-btn a, .signin .signin-form .inputs .signin-control .signin-btn button, .signin .signin-form .inputs .signin-control .signin-btn a {
     cursor: pointer;
     text-transform: uppercase;
     font-size: 14px;
@@ -139,22 +153,28 @@ body, html {
     width: 120px;
     border-radius: 2px;
     outline: none; }
-    .signup .signup-form .inputs .signup-control .signup-btn button i, .signup .signup-form .inputs .signup-control .signup-btn a i, .signup .signup-form .inputs .signup-control .signin-btn button i, .signup .signup-form .inputs .signup-control .signin-btn a i {
+    .signup .signup-form .inputs .signup-control .signup-btn button i, .signup .signup-form .inputs .signup-control .signup-btn a i, .signup .signup-form .inputs .signup-control .signin-btn button i, .signup .signup-form .inputs .signup-control .signin-btn a i, .signup .signup-form .inputs .signin-control .signup-btn button i, .signup .signup-form .inputs .signin-control .signup-btn a i, .signup .signup-form .inputs .signin-control .signin-btn button i, .signup .signup-form .inputs .signin-control .signin-btn a i, .signup .signin-form .inputs .signup-control .signup-btn button i, .signup .signin-form .inputs .signup-control .signup-btn a i, .signup .signin-form .inputs .signup-control .signin-btn button i, .signup .signin-form .inputs .signup-control .signin-btn a i, .signup .signin-form .inputs .signin-control .signup-btn button i, .signup .signin-form .inputs .signin-control .signup-btn a i, .signup .signin-form .inputs .signin-control .signin-btn button i, .signup .signin-form .inputs .signin-control .signin-btn a i, .signin .signup-form .inputs .signup-control .signup-btn button i, .signin .signup-form .inputs .signup-control .signup-btn a i, .signin .signup-form .inputs .signup-control .signin-btn button i, .signin .signup-form .inputs .signup-control .signin-btn a i, .signin .signup-form .inputs .signin-control .signup-btn button i, .signin .signup-form .inputs .signin-control .signup-btn a i, .signin .signup-form .inputs .signin-control .signin-btn button i, .signin .signup-form .inputs .signin-control .signin-btn a i, .signin .signin-form .inputs .signup-control .signup-btn button i, .signin .signin-form .inputs .signup-control .signup-btn a i, .signin .signin-form .inputs .signup-control .signin-btn button i, .signin .signin-form .inputs .signup-control .signin-btn a i, .signin .signin-form .inputs .signin-control .signup-btn button i, .signin .signin-form .inputs .signin-control .signup-btn a i, .signin .signin-form .inputs .signin-control .signin-btn button i, .signin .signin-form .inputs .signin-control .signin-btn a i {
       opacity: 0;
       margin-left: -13px;
       transition: all .2s ease-in-out; }
-    .signup .signup-form .inputs .signup-control .signup-btn button:hover i, .signup .signup-form .inputs .signup-control .signup-btn a:hover i, .signup .signup-form .inputs .signup-control .signin-btn button:hover i, .signup .signup-form .inputs .signup-control .signin-btn a:hover i {
+    .signup .signup-form .inputs .signup-control .signup-btn button:hover i, .signup .signup-form .inputs .signup-control .signup-btn a:hover i, .signup .signup-form .inputs .signup-control .signin-btn button:hover i, .signup .signup-form .inputs .signup-control .signin-btn a:hover i, .signup .signup-form .inputs .signin-control .signup-btn button:hover i, .signup .signup-form .inputs .signin-control .signup-btn a:hover i, .signup .signup-form .inputs .signin-control .signin-btn button:hover i, .signup .signup-form .inputs .signin-control .signin-btn a:hover i, .signup .signin-form .inputs .signup-control .signup-btn button:hover i, .signup .signin-form .inputs .signup-control .signup-btn a:hover i, .signup .signin-form .inputs .signup-control .signin-btn button:hover i, .signup .signin-form .inputs .signup-control .signin-btn a:hover i, .signup .signin-form .inputs .signin-control .signup-btn button:hover i, .signup .signin-form .inputs .signin-control .signup-btn a:hover i, .signup .signin-form .inputs .signin-control .signin-btn button:hover i, .signup .signin-form .inputs .signin-control .signin-btn a:hover i, .signin .signup-form .inputs .signup-control .signup-btn button:hover i, .signin .signup-form .inputs .signup-control .signup-btn a:hover i, .signin .signup-form .inputs .signup-control .signin-btn button:hover i, .signin .signup-form .inputs .signup-control .signin-btn a:hover i, .signin .signup-form .inputs .signin-control .signup-btn button:hover i, .signin .signup-form .inputs .signin-control .signup-btn a:hover i, .signin .signup-form .inputs .signin-control .signin-btn button:hover i, .signin .signup-form .inputs .signin-control .signin-btn a:hover i, .signin .signin-form .inputs .signup-control .signup-btn button:hover i, .signin .signin-form .inputs .signup-control .signup-btn a:hover i, .signin .signin-form .inputs .signup-control .signin-btn button:hover i, .signin .signin-form .inputs .signup-control .signin-btn a:hover i, .signin .signin-form .inputs .signin-control .signup-btn button:hover i, .signin .signin-form .inputs .signin-control .signup-btn a:hover i, .signin .signin-form .inputs .signin-control .signin-btn button:hover i, .signin .signin-form .inputs .signin-control .signin-btn a:hover i {
       opacity: 1;
       margin-left: 6px; }
-  .signup .signup-form .inputs .signup-control .signup-btn a, .signup .signup-form .inputs .signup-control .signin-btn a {
+  .signup .signup-form .inputs .signup-control .signup-btn a, .signup .signup-form .inputs .signup-control .signin-btn a, .signup .signup-form .inputs .signin-control .signup-btn a, .signup .signup-form .inputs .signin-control .signin-btn a, .signup .signin-form .inputs .signup-control .signup-btn a, .signup .signin-form .inputs .signup-control .signin-btn a, .signup .signin-form .inputs .signin-control .signup-btn a, .signup .signin-form .inputs .signin-control .signin-btn a, .signin .signup-form .inputs .signup-control .signup-btn a, .signin .signup-form .inputs .signup-control .signin-btn a, .signin .signup-form .inputs .signin-control .signup-btn a, .signin .signup-form .inputs .signin-control .signin-btn a, .signin .signin-form .inputs .signup-control .signup-btn a, .signin .signin-form .inputs .signup-control .signin-btn a, .signin .signin-form .inputs .signin-control .signup-btn a, .signin .signin-form .inputs .signin-control .signin-btn a {
     background: transparent;
     color: #00B5B5;
     font-weight: 900;
     text-decoration: none; }
-  .signup .signup-form .inputs .signup-control .have-account {
+  .signup .signup-form .inputs .signup-control .have-account, .signup .signup-form .inputs .signup-control .create-account, .signup .signup-form .inputs .signin-control .have-account, .signup .signup-form .inputs .signin-control .create-account, .signup .signin-form .inputs .signup-control .have-account, .signup .signin-form .inputs .signup-control .create-account, .signup .signin-form .inputs .signin-control .have-account, .signup .signin-form .inputs .signin-control .create-account, .signin .signup-form .inputs .signup-control .have-account, .signin .signup-form .inputs .signup-control .create-account, .signin .signup-form .inputs .signin-control .have-account, .signin .signup-form .inputs .signin-control .create-account, .signin .signin-form .inputs .signup-control .have-account, .signin .signin-form .inputs .signup-control .create-account, .signin .signin-form .inputs .signin-control .have-account, .signin .signin-form .inputs .signin-control .create-account {
     text-align: right; }
 
+.signin-img {
+  background: url("/img/signin.svg") no-repeat !important;
+  background-size: cover !important;
+  background-position: 50% 50% !important;
+  position: relative !important; }
+
 @media (max-width: 640px) {
-  .signup-control .signin-btn, .signup-control .signup-btn, .signup-control .or {
+  .signup-control .signin-btn, .signup-control .signup-btn, .signup-control .or, .signin-control .signin-btn, .signin-control .signup-btn, .signin-control .or {
     margin: 5px 0;
     text-align: left !important; } }
