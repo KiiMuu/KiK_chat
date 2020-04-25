@@ -1,23 +1,22 @@
 const express = require('express');
-const { check, validationResult } = require('express-validator/check');
+const { check, validationResult, body } = require('express-validator/check');
 
 // controllers
 const usersController = require('../controllers/users');
 
 const router = express.Router();
 
-router.get('/home', usersController.homePage);
-router.get('/', usersController.indexPage);
+router.get('/', usersController.homePage);
 // sign up
 router.get('/signup', usersController.getSignUp);
 router.post('/signup',
     [
-        check('username', 'Username is required').notEmpty(),
+        check('username', 'Username is Required').notEmpty(),
         check('username', 'Username Must not be less than 3').isLength({ min: 3 }),
-        check('email', 'Email is required').notEmpty(),
-        check('email', 'Invalid email').isEmail(),
-        check('password', 'Password is required').notEmpty(),
-        check('password', 'Password Must not be less than 6').isLength({ min: 6 })
+        check('email', 'Email is Required').notEmpty(),
+        check('email', 'Invalid Email').isEmail(),
+        check('password', 'Password is Required').notEmpty(),
+        check('password', 'Password Must not be less than 6').isLength({ min: 6 }).isAlphanumeric().trim()
     ],
     (req, res, next) => {
         const errors = validationResult(req);
@@ -40,5 +39,32 @@ router.post('/signup',
 );
 // signin
 router.get('/signin', usersController.getSignIn);
+router.post('/signin',
+    [
+        body('email')
+        .isEmail()
+        .withMessage('Invalid Email')
+        .normalizeEmail(),
+        body('password', 'Password is Incorrect')
+        .isLength({ min: 6 })
+    ],
+    (req, res, next) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            console.log(errors.array());
+            res.render('auth/signin', {
+                PageTitle: 'Sign In',
+                errorMessages: errors.array().msg,
+                oldInputs: {
+                    email: req.body.email,
+                    password: req.body.password
+                },
+                validationErrors: errors.array()
+            });
+        }
+        next();
+    },
+    usersController.postSignIn
+);
 
 module.exports = router;

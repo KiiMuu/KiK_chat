@@ -6,13 +6,6 @@ exports.homePage = (req, res, next) => {
     res.render('home');
 }
 
-// Index
-exports.indexPage = (req, res, next) => {
-    res.render('index', {
-        test: 'This is a Test'
-    });
-}
-
 // GET signup
 exports.getSignUp = (req, res, next) => {
     const messages = req.flash('error');
@@ -30,21 +23,28 @@ exports.getSignUp = (req, res, next) => {
 
 // POST signup
 exports.postSignUp = passport.authenticate('local.signup', {
-    successRedirect: '/home',
+    successRedirect: '/',
     failureRedirect: 'signup',
     failureFlash: true
 })
 
 // GET signin
 exports.getSignIn = (req, res, next) => {
+    let messages = req.flash('error');
     res.render('auth/signin', {
         pageTitle: 'Sign In',
-        // errorMessages: messages,
-        // oldInputs: {
-        //     username: '',
-        //     email: '',
-        //     password: ''
-        // },
-        // validationErrors: []
+        errorMessages: messages,
+        oldInputs: {
+            email: '',
+            password: ''
+        },
+        validationErrors: []
     });
 }
+
+// POST signin
+exports.postSignIn = passport.authenticate('local.signin', {
+    successRedirect: '/',
+    failureRedirect: 'signin',
+    failureFlash: true
+})

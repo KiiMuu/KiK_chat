@@ -98,6 +98,12 @@ body, html {
 .signup .signup-form .uk-container-xsmall, .signup .signin-form .uk-container-xsmall, .signin .signup-form .uk-container-xsmall, .signin .signin-form .uk-container-xsmall {
   max-width: 450px; }
 
+.signup .signup-form .inputs .invalid-feedback2, .signup .signin-form .inputs .invalid-feedback2, .signin .signup-form .inputs .invalid-feedback2, .signin .signin-form .inputs .invalid-feedback2 {
+  width: 100%;
+  margin-bottom: .50rem;
+  font-size: 80%;
+  color: #dc3545; }
+
 .signup .signup-form .inputs .uk-input, .signup .signin-form .inputs .uk-input, .signin .signup-form .inputs .uk-input, .signin .signin-form .inputs .uk-input {
   width: 100%;
   height: 50px;

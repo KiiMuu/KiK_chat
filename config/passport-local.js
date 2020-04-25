@@ -14,6 +14,7 @@ passport.deserializeUser((id, done) => {
     });
 });
 
+// signup approach
 passport.use('local.signup', new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password',
@@ -26,7 +27,7 @@ passport.use('local.signup', new LocalStrategy({
 
         // user exist
         if (user) { 
-            return(null, false, req.flash('error', 'User already exist')); 
+            return(null, false, req.flash('error', 'User already exist'));
         }
 
         // create a new user
@@ -40,5 +41,27 @@ passport.use('local.signup', new LocalStrategy({
             
             return done(null, newUser);
         });
+    });
+}));
+
+
+// signin approach
+passport.use('local.signin', new LocalStrategy({
+    usernameField: 'email',
+    passwordField: 'password',
+    passReqToCallback: true
+}, (req, email, password, done) => {
+    User.findOne({ 'email': email }, (err, user) => {
+        if (err) { 
+            return done(err); 
+        }
+
+        const errorMessages = [];
+        if (!user || !user.validUserPassword(password)) {
+            errorMessages.push('User not exist or Password is Incorrect');
+            return done(null, false, req.flash('error', errorMessages));
+        }
+
+        return done(null, user);
     });
 }));

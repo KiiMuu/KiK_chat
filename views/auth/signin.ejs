@@ -7,26 +7,47 @@
         <div class="signin-form uk-box-shadow-large uk-padding-large">
             <div class="form-heading uk-text-center">
                 <h2 class="uk-text-uppercase">Welcome back</h2>
-                <p class="uk-text-muted">Sign In to communicate with your acquaintances.</p>
+                <p class="uk-text-muted">Sign In to talk to your acquaintances.</p>
             </div>
             <div class="inputs uk-container uk-container-xsmall uk-margin-medium-top">
                 <form action="/signin" method="POST" novalidate>
+                    <% if (errorMessages) { %>
+                        <div class="invalid-feedback2">
+                            <%= errorMessages %>
+                        </div>
+                    <% } %>
                     <div class="uk-grid-small uk-child-width-1-1@s" uk-grid>
                         <div class="input">
                             <input 
-                                class="uk-input"  
+                                class="uk-input <%= validationErrors.find(e => e.param === 'email') ? 'input-error' : '' %>"  
                                 type="email" 
                                 name="email" 
                                 placeholder="Email, E.g. jhon@doe.com"
+                                value="<%= oldInputs.email %>"
                             >
+                            <% validationErrors.forEach(e => { %>
+                                <% if (e.param === 'email') { %>
+                                    <div class="invalid-feedback">
+                                        <%= e.msg %>
+                                    </div>
+                                <% } %>
+                            <% }) %>
                         </div>
                         <div class="input">
                             <input 
-                                class="uk-input"  
+                                class="uk-input <%= validationErrors.find(e => e.param === 'password') ? 'input-error' : '' %>"  
                                 type="password" 
                                 name="password" 
                                 placeholder="Password"
+                                value="<%= oldInputs.password %>"
                             >
+                            <% validationErrors.forEach(e => { %>
+                                <% if (e.param === 'password') { %>
+                                    <div class="invalid-feedback">
+                                        <%= e.msg %>
+                                    </div>
+                                <% } %>
+                            <% }) %>
                         </div>
                     </div>
                     <div class="signin-control">
