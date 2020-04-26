@@ -34,6 +34,7 @@ const usersRoutes = require('./routes/users');
 
 require('./config/passport-local');
 require('./config/passport-facebook');
+require('./config/passport-google');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'assets')));

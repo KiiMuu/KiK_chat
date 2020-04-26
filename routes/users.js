@@ -70,5 +70,9 @@ router.post('/signin',
 router.get('/auth/facebook', usersController.getFacebookAuth);
 router.get('/auth/facebook/callback', usersController.facebookAuth);
 
+// Google Auth
+router.get('/auth/google', usersController.getGoogleAuth);
+router.get('/auth/google/callback', usersController.googleAuth);
+
 
 module.exports = router;

@@ -33,8 +33,7 @@ const userSchema = new Schema({
     google: {
         type: String,
         default: ''
-    },
-    googleTokens: Array
+    }
 });
 
 userSchema.methods.encryptPassword = function(password) {

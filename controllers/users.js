@@ -58,3 +58,18 @@ exports.facebookAuth = passport.authenticate('facebook', {
     failureRedirect: 'signup',
     failureFlash: true
 });
+
+// Google Auth
+exports.getGoogleAuth = passport.authenticate('google', {
+    scope: [
+        'https://www.googleapis.com/auth/plus.login',
+        'https://www.googleapis.com/auth/plus.profile.emails.read',
+        'email'
+    ]
+});
+
+exports.googleAuth = passport.authenticate('google', {
+    successRedirect: '/',
+    failureRedirect: 'signup',
+    failureFlash: true
+});
