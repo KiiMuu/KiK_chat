@@ -1,5 +1,4 @@
 const passport = require('passport');
-const { validationResult } = require('express-validator');
 
 // Home
 exports.homePage = (req, res, next) => {
@@ -48,3 +47,14 @@ exports.postSignIn = passport.authenticate('local.signin', {
     failureRedirect: 'signin',
     failureFlash: true
 })
+
+// FB Auth
+exports.getFacebookAuth = passport.authenticate('facebook', {
+    scope: 'email'
+});
+
+exports.facebookAuth = passport.authenticate('facebook', {
+    successRedirect: '/',
+    failureRedirect: 'signup',
+    failureFlash: true
+});

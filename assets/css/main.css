@@ -174,6 +174,35 @@ body, html {
   .signup .signup-form .inputs .signup-control .have-account, .signup .signup-form .inputs .signup-control .create-account, .signup .signup-form .inputs .signin-control .have-account, .signup .signup-form .inputs .signin-control .create-account, .signup .signin-form .inputs .signup-control .have-account, .signup .signin-form .inputs .signup-control .create-account, .signup .signin-form .inputs .signin-control .have-account, .signup .signin-form .inputs .signin-control .create-account, .signin .signup-form .inputs .signup-control .have-account, .signin .signup-form .inputs .signup-control .create-account, .signin .signup-form .inputs .signin-control .have-account, .signin .signup-form .inputs .signin-control .create-account, .signin .signin-form .inputs .signup-control .have-account, .signin .signin-form .inputs .signup-control .create-account, .signin .signin-form .inputs .signin-control .have-account, .signin .signin-form .inputs .signin-control .create-account {
     text-align: right; }
 
+.signup .signup-form .inputs .social-auth p, .signup .signin-form .inputs .social-auth p, .signin .signup-form .inputs .social-auth p, .signin .signin-form .inputs .social-auth p {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #999;
+  line-height: 0.1em;
+  margin: 5px 0 10px; }
+  .signup .signup-form .inputs .social-auth p span, .signup .signin-form .inputs .social-auth p span, .signin .signup-form .inputs .social-auth p span, .signin .signin-form .inputs .social-auth p span {
+    background: #fff;
+    padding: 0 8px;
+    font-size: 15px; }
+
+.signup .signup-form .inputs .social-auth .social-links, .signup .signin-form .inputs .social-auth .social-links, .signin .signup-form .inputs .social-auth .social-links, .signin .signin-form .inputs .social-auth .social-links {
+  margin-top: 20px; }
+  .signup .signup-form .inputs .social-auth .social-links .fb-link a, .signup .signup-form .inputs .social-auth .social-links .google-link a, .signup .signin-form .inputs .social-auth .social-links .fb-link a, .signup .signin-form .inputs .social-auth .social-links .google-link a, .signin .signup-form .inputs .social-auth .social-links .fb-link a, .signin .signup-form .inputs .social-auth .social-links .google-link a, .signin .signin-form .inputs .social-auth .social-links .fb-link a, .signin .signin-form .inputs .social-auth .social-links .google-link a {
+    color: #fff; }
+    .signup .signup-form .inputs .social-auth .social-links .fb-link a i, .signup .signup-form .inputs .social-auth .social-links .google-link a i, .signup .signin-form .inputs .social-auth .social-links .fb-link a i, .signup .signin-form .inputs .social-auth .social-links .google-link a i, .signin .signup-form .inputs .social-auth .social-links .fb-link a i, .signin .signup-form .inputs .social-auth .social-links .google-link a i, .signin .signin-form .inputs .social-auth .social-links .fb-link a i, .signin .signin-form .inputs .social-auth .social-links .google-link a i {
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      border-radius: 2px;
+      transition: all .2s ease-in-out; }
+      .signup .signup-form .inputs .social-auth .social-links .fb-link a i:hover, .signup .signup-form .inputs .social-auth .social-links .google-link a i:hover, .signup .signin-form .inputs .social-auth .social-links .fb-link a i:hover, .signup .signin-form .inputs .social-auth .social-links .google-link a i:hover, .signin .signup-form .inputs .social-auth .social-links .fb-link a i:hover, .signin .signup-form .inputs .social-auth .social-links .google-link a i:hover, .signin .signin-form .inputs .social-auth .social-links .fb-link a i:hover, .signin .signin-form .inputs .social-auth .social-links .google-link a i:hover {
+        transform: rotate(360deg); }
+  .signup .signup-form .inputs .social-auth .social-links .fb-link a i, .signup .signin-form .inputs .social-auth .social-links .fb-link a i, .signin .signup-form .inputs .social-auth .social-links .fb-link a i, .signin .signin-form .inputs .social-auth .social-links .fb-link a i {
+    background: #3b5998; }
+  .signup .signup-form .inputs .social-auth .social-links .google-link a i, .signup .signin-form .inputs .social-auth .social-links .google-link a i, .signin .signup-form .inputs .social-auth .social-links .google-link a i, .signin .signin-form .inputs .social-auth .social-links .google-link a i {
+    background: #ea4335; }
+
 .signin-img {
   background: url("/img/signin.svg") no-repeat !important;
   background-size: cover !important;
@@ -181,6 +210,6 @@ body, html {
   position: relative !important; }
 
 @media (max-width: 640px) {
-  .signup-control .signin-btn, .signup-control .signup-btn, .signup-control .or, .signin-control .signin-btn, .signin-control .signup-btn, .signin-control .or {
+  .signup-control .signin-btn, .signup-control .signup-btn, .signin-control .signin-btn, .signin-control .signup-btn {
     margin: 5px 0;
     text-align: left !important; } }

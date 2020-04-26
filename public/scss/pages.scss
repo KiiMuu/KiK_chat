@@ -120,6 +120,53 @@
                     text-align: right;
                 }
             }
+            .social-auth {
+                p {
+                    width: 100%; 
+                    text-align: center; 
+                    border-bottom: 1px solid #999; 
+                    line-height: 0.1em;
+                    margin: 5px 0 10px;
+                    span {
+                        background:#fff; 
+                        padding:0 8px;
+                        font-size: 15px;
+                    }
+                }
+                .social-links {
+                    margin-top: 20px;
+                    .fb-link, .google-link {
+                        a {
+                            color: #fff;
+                            i {
+                                width: 40px;
+                                height: 40px;
+                                line-height: 40px;
+                                text-align: center;
+                                border-radius: 2px;
+                                transition: all .2s ease-in-out;
+                                &:hover {
+                                    transform: rotate(360deg);
+                                }
+                            }                            
+                        }
+                    }
+                    .fb-link {
+                        a {
+                            i {
+                                background: #3b5998;
+                            }
+                        }
+                    }
+                    .google-link {
+                        a {
+                            i {
+                                background: #ea4335;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

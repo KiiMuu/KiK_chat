@@ -3,7 +3,6 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const cookieParser = require('cookie-parser');
-// const validator = require('express-validator');
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 const mongoose = require('mongoose');
@@ -21,7 +20,9 @@ const store = new MongoDBStore({
 // connect to mongodb
 mongoose.connect(MONGO_URI, { 
     useNewUrlParser: true,
-    useUnifiedTopology: true 
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
 }).then(() => {
     console.log('MongoDB connected');
 }).catch(err => {
@@ -32,6 +33,7 @@ mongoose.connect(MONGO_URI, {
 const usersRoutes = require('./routes/users');
 
 require('./config/passport-local');
+require('./config/passport-facebook');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'assets')));
@@ -45,7 +47,6 @@ app.use(session({
     store
 }));
 app.use(flash());
-// app.use(validator());
 app.use(passport.initialize());
 app.use(passport.session());
 
