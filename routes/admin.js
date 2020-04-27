@@ -7,4 +7,6 @@ const router = express.Router();
 
 router.get('/dashboard', adminController.adminPage);
 
+router.post('/uploadFile', adminController.uploadFile);
+
 module.exports = router;
