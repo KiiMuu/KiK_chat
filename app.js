@@ -31,6 +31,7 @@ mongoose.connect(MONGO_URI, {
 
 // get routes
 const usersRoutes = require('./routes/users');
+const adminRoutes = require('./routes/admin');
 
 require('./config/passport-local');
 require('./config/passport-facebook');
@@ -57,6 +58,7 @@ app.set('views', 'views');
 
 // use routes
 app.use(usersRoutes);
+app.use(adminRoutes);
 
 // app listen
 const PORT = process.env.PORT || 3001;

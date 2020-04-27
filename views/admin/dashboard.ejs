@@ -1,0 +1,13 @@
+<%- include('../includes/head.ejs') %>
+<%- include('../includes/navigation.ejs') %>
+<div class="admin-dashboard">
+    <div class="uk-container">
+        <form action="/dashboard" method="POST">
+            <input type="text" name="club" placeholder="Club Name">
+            <input type="text" name="country" placeholder="Country">
+            <button type="button">Upload File</button>
+            <input type="file" name="upload" id="upload-input">
+        </form>
+    </div>
+</div>
+<%- include('../includes/end.ejs') %>

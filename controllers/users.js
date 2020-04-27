@@ -2,7 +2,9 @@ const passport = require('passport');
 
 // Home
 exports.homePage = (req, res, next) => {
-    res.render('home');
+    res.render('home', {
+        pageTitle: 'Home'
+    });
 }
 
 // GET signup
