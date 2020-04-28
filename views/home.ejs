@@ -1,4 +1,61 @@
 <%- include('./includes/head.ejs') %>
 <%- include('./includes/navigation.ejs') %>
-<h1>Home</h1>
+<div class="home uk-margin-medium-top">
+    <div class="uk-container">
+        <div class="uk-grid-small" uk-grid>
+            <div class="uk-width-1-4@m">
+                <div class="filter uk-box-shadow-medium">
+                    <div class="filter-heading">
+                        <h4 class="uk-text-uppercase">Filter</h4>
+                    </div>
+                    <div class="filter-option">
+                        <select class="uk-select" name="country" id="country">
+                            <option value="">Filter By Country</option>
+                            <% country.forEach(result => { %>
+                                <option value="<%= result._id %>"><%= result._id %></option>
+                            <% }) %>
+                        </select>
+                    </div>
+                    <div class="filter-button">
+                        <a href="#" class="uk-text-uppercase">Apply</a>
+                    </div>
+                </div>
+            </div>
+            <div class="uk-width-3-4@m">
+                <div class="club">
+                    <div class="club-search uk-margin-small-bottom">
+                        <input class="search-in" type="text" placeholder="Search in Clubs">
+                        <i class="fa fa-arrow-right" title="Search"></i>
+                    </div>
+                    <div class="clubs">
+                        <form action="" method="POST">
+                            <% data.forEach(club => { %>
+                                <div class="uk-child-width-1-3@m" uk-grid>
+                                    <% club.forEach(club2 => { %>
+                                        <div class="club-content">
+                                            <div class="club-img">
+                                                <a href="/group/<%= club2.name %>" title="Go to <%= club2.name %> Club">
+                                                    <img src="<%= club2.image %>" alt="<%= club2.name %>" draggable="false">
+                                                </a>
+                                            </div>
+                                            <div class="club-name">
+                                                <h4><%= club2.name %></h4>
+                                            </div>
+                                            <div class="club-country">
+                                                <span><%= club2.country %></span>
+                                            </div>
+                                            <div class="add-to-fav">
+                                                <button title="Add to Favourite"><i class="fa fa-star"></i></button>
+                                            </div>
+                                        </div>
+                                    <% }) %>
+                                </div>
+                            <% }) %>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <%- include('./includes/end.ejs') %>

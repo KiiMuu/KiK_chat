@@ -1,12 +1,5 @@
 const passport = require('passport');
 
-// Home
-exports.homePage = (req, res, next) => {
-    res.render('home', {
-        pageTitle: 'Home'
-    });
-}
-
 // GET signup
 exports.getSignUp = (req, res, next) => {
     const messages = req.flash('error');

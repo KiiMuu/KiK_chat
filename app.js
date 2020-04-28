@@ -32,6 +32,7 @@ mongoose.connect(MONGO_URI, {
 // get routes
 const usersRoutes = require('./routes/users');
 const adminRoutes = require('./routes/admin');
+const homeRoutes = require('./routes/home');
 
 require('./config/passport-local');
 require('./config/passport-facebook');
@@ -41,6 +42,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'assets')));
 app.use(express.static(path.join(__dirname, 'helpers')));
 app.use('/img', express.static(path.join(__dirname, 'img')));
+app.use(express.static(path.join(__dirname, '/public/uploads')));
 app.use(cookieParser());
 app.use(session({
     secret: 'mustbesecrethuh',
@@ -59,6 +61,7 @@ app.set('views', 'views');
 // use routes
 app.use(usersRoutes);
 app.use(adminRoutes);
+app.use(homeRoutes);
 
 // app listen
 const PORT = process.env.PORT || 3001;
