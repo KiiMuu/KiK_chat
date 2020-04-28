@@ -178,3 +178,56 @@
     background-position: 50% 50% !important;
     position: relative !important;
 }
+
+// admin page
+.admin-dashboard {
+    .uk-container-small {
+        max-width: 500px
+    }
+    .form-content {
+        padding: 50px;
+        h3 {
+            color: $mainColor;
+            font-weight: 900;
+        }
+        .uk-input {
+            width: 100%;
+            height: 50px;
+            font-size: 17px;
+            color: #777;
+            margin-top: 0;
+            border: 1px solid #ced4da;
+            outline: none;
+            transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+            border-radius: 2px;
+            &::placeholder {
+                font-size: 15px;
+                color: #aaa;
+            }
+            &:focus {
+                background-color: #fff;
+                border-color: $mainColor;
+                box-shadow: 0 0 0 0.25rem rgba(0,123,255,.25);
+            }
+        }
+        .upload-btn {
+            width: 100%;
+            height: 50px;
+            background: #f3f3f3;
+            border: none;
+            cursor: pointer;
+        }
+        .add-btn {
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 14px;
+            background: $mainColor;
+            color: $mainLight;
+            border: none;
+            height: 43px;
+            width: 120px;
+            border-radius: 2px;
+            outline: none;
+        }
+    }
+}

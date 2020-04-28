@@ -1,16 +1,25 @@
 <%- include('../includes/head.ejs') %>
 <%- include('../includes/navigation.ejs') %>
-<div class="admin-dashboard">
-    <div class="uk-container">
-        <form action="/dashboard" method="POST">
-            <input type="text" name="club" placeholder="Club Name">
-            <input type="text" name="country" placeholder="Country">
-
-            <button type="button" class="upload-btn">Upload File</button>
-            <input type="file" name="upload" id="upload-input" style="display: none;" />
-
-            <button>Add Group</button>
-        </form>
+<div class="admin-dashboard uk-text-center uk-margin-large-top">
+    <div class="uk-container uk-container-small">
+        <div class="form-content uk-box-shadow-xlarge">
+            <h3 class="uk-text-uppercase">Add Club</h3>
+            <form action="/dashboard" method="POST">
+                <div class="uk-grid-small uk-child-width-1-1@s" uk-grid>
+                    <div class="input">
+                        <input class="uk-input" type="text" name="club" placeholder="Club Name">
+                    </div>
+                    <div class="input">
+                        <input class="uk-input" type="text" name="country" placeholder="Country">
+                    </div>
+                    <div class="input">
+                        <button type="button" class="upload-btn">Upload File</button>
+                        <input type="file" name="upload" id="upload-input" style="display: none;" />
+                    </div>
+                </div>
+                <button class="add-btn uk-margin-small-top">Add Club</button>
+            </form>
+        </div>
     </div>
 </div>
 <%- include('../includes/end.ejs') %>
