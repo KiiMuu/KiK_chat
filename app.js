@@ -39,7 +39,7 @@ require('./config/passport-google');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'assets')));
-// app.use(express.static(path.join(__dirname, 'helpers')));
+app.use(express.static(path.join(__dirname, 'helpers')));
 app.use('/img', express.static(path.join(__dirname, 'img')));
 app.use(cookieParser());
 app.use(session({

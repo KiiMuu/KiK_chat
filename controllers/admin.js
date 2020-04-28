@@ -2,6 +2,8 @@ const formidable = require('formidable');
 const path = require('path');
 const fs = require('fs');
 
+const Club = require('../models/club');
+
 exports.adminPage = (req, res, next) => {
     res.render('admin/dashboard', {
         pageTitle: 'Dashborad'
@@ -29,4 +31,16 @@ exports.uploadFile = (req, res, next) => {
     });
 
     form.parse(req);
+}
+
+exports.adminPostPage = (req, res, next) => {
+    const newClub = new Club({
+        name: req.body.club,
+        country: req.body.country,
+        image: req.body.upload
+    });
+
+    newClub.save((err) => {
+        res.render('admin/dashboard')
+    });
 }

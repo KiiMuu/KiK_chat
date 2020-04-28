@@ -5,7 +5,7 @@ const clubSchema = mongoose.Schema({
         type: String,
         default: ''
     },
-    counrty: {
+    country: {
         type: String,
         default: ''
     },
