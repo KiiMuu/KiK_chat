@@ -29,28 +29,34 @@
                     </div>
                     <div class="clubs">
                         <form action="" method="POST">
-                            <% data.forEach(club => { %>
-                                <div class="uk-child-width-1-3@m" uk-grid>
-                                    <% club.forEach(club2 => { %>
-                                        <div class="club-content">
-                                            <div class="club-img">
-                                                <a href="/group/<%= club2.name %>" title="Go to <%= club2.name %> Club">
-                                                    <img src="<%= club2.image %>" alt="<%= club2.name %>" draggable="false">
-                                                </a>
-                                            </div>
-                                            <div class="club-name">
-                                                <h4><%= club2.name %></h4>
-                                            </div>
-                                            <div class="club-country">
-                                                <span><%= club2.country %></span>
-                                            </div>
-                                            <div class="add-to-fav">
-                                                <button title="Add to Favourite"><i class="fa fa-star"></i></button>
-                                            </div>
-                                        </div>
-                                    <% }) %>
+                            <% if (data.length == 0) { %>
+                                <div class="uk-background-muted uk-padding uk-panel">
+                                    <p class="uk-h4 uk-text-center">There're no clubs yet.</p>
                                 </div>
-                            <% }) %>
+                            <% } else { %>
+                                <% data.forEach(club => { %>
+                                    <div class="uk-child-width-1-3@m" uk-grid>
+                                        <% club.forEach(club2 => { %>
+                                            <div class="club-content">
+                                                <div class="club-img">
+                                                    <a href="/group/<%= club2.name %>" title="Go to <%= club2.name %> Club">
+                                                        <img src="<%= club2.image %>" alt="<%= club2.name %>" draggable="false">
+                                                    </a>
+                                                </div>
+                                                <div class="club-name">
+                                                    <h4><%= club2.name %></h4>
+                                                </div>
+                                                <div class="club-country">
+                                                    <span><%= club2.country %></span>
+                                                </div>
+                                                <div class="add-to-fav">
+                                                    <button title="Add to Favourite"><i class="fa fa-star"></i></button>
+                                                </div>
+                                            </div>
+                                        <% }) %>
+                                    </div>
+                                <% }) %>
+                            <% } %>
                         </form>
                     </div>
                 </div>

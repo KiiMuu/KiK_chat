@@ -33,6 +33,7 @@ mongoose.connect(MONGO_URI, {
 const usersRoutes = require('./routes/users');
 const adminRoutes = require('./routes/admin');
 const homeRoutes = require('./routes/home');
+const groupChat = require('./routes/group');
 
 require('./config/passport-local');
 require('./config/passport-facebook');
@@ -62,6 +63,7 @@ app.set('views', 'views');
 app.use(usersRoutes);
 app.use(adminRoutes);
 app.use(homeRoutes);
+app.use(groupChat);
 
 // app listen
 const PORT = process.env.PORT || 3001;
