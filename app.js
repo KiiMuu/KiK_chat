@@ -1,4 +1,5 @@
 const express = require('express');
+const http = require('http');
 const path = require('path');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
@@ -12,6 +13,9 @@ const passport = require('passport');
 const MONGO_URI = 'mongodb://localhost/kik-chat';
 
 const app = express();
+const server = http.createServer(app);
+const io = require('socket.io')(server);
+
 const store = new MongoDBStore({
     uri: MONGO_URI,
     collection: 'sessions'
@@ -28,6 +32,9 @@ mongoose.connect(MONGO_URI, {
 }).catch(err => {
     console.log(err);
 });
+
+// socket.io
+require('./socket/groupchat')(io);
 
 // get routes
 const usersRoutes = require('./routes/users');
@@ -67,6 +74,6 @@ app.use(groupChat);
 
 // app listen
 const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
+server.listen(PORT, () => {
     console.log(`App is up on port ${PORT}`);
 });

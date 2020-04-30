@@ -340,6 +340,102 @@ body, html {
   border-radius: 2px;
   outline: none; }
 
+.group .myprofile {
+  border: 1px solid #e2e2e2;
+  padding: 30px; }
+  .group .myprofile .profile-img {
+    margin-bottom: 10px; }
+  .group .myprofile .profile-names h6 {
+    margin-bottom: 5px; }
+  .group .myprofile .profile-names h4 {
+    margin-bottom: 10px; }
+  .group .myprofile .profile-footer a {
+    font-size: 13px; }
+    .group .myprofile .profile-footer a i {
+      color: #00B5B5;
+      font-size: 15px;
+      margin-right: 5px; }
+
+.group .online-friends {
+  border: 1px solid #e2e2e2;
+  padding: 30px; }
+  .group .online-friends .heading .online-dot {
+    width: 10px;
+    height: 10px;
+    background: green;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px; }
+
+.group .chating-box {
+  border: 1px solid #e2e2e2;
+  padding: 30px; }
+  .group .chating-box .chat-area {
+    height: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+    border-left: 1px solid #e2e2e2;
+    border-bottom: 1px solid #e2e2e2;
+    border-right: 1px solid #e2e2e2;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
+    margin-bottom: 10px; }
+  .group .chating-box .message-box {
+    position: relative; }
+    .group .chating-box .message-box .uk-input {
+      height: 50px;
+      padding-left: 10px;
+      padding-right: 55px;
+      font-size: 17px;
+      color: #777;
+      border: 1px solid #ced4da;
+      outline: none;
+      transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+      border-radius: 2px; }
+      .group .chating-box .message-box .uk-input::-webkit-input-placeholder {
+        font-size: 15px;
+        color: #aaa; }
+      .group .chating-box .message-box .uk-input::-moz-placeholder {
+        font-size: 15px;
+        color: #aaa; }
+      .group .chating-box .message-box .uk-input:-ms-input-placeholder {
+        font-size: 15px;
+        color: #aaa; }
+      .group .chating-box .message-box .uk-input::-ms-input-placeholder {
+        font-size: 15px;
+        color: #aaa; }
+      .group .chating-box .message-box .uk-input::placeholder {
+        font-size: 15px;
+        color: #aaa; }
+      .group .chating-box .message-box .uk-input:focus {
+        background-color: #fff;
+        border-color: #00B5B5;
+        box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25); }
+    .group .chating-box .message-box button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: transparent;
+      border: none;
+      outline: none; }
+      .group .chating-box .message-box button i {
+        color: #00B5B5;
+        cursor: pointer;
+        font-size: 30px; }
+
+.group .club-fans .online-club {
+  border: 1px solid #e2e2e2;
+  padding: 30px; }
+  .group .club-fans .online-club .heading i {
+    margin-right: 8px;
+    color: #00B5B5; }
+
 @media (max-width: 640px) {
   .signup-control .signin-btn, .signup-control .signup-btn, .signin-control .signin-btn, .signin-control .signup-btn {
     margin: 5px 0;
