@@ -3,6 +3,6 @@ exports.groupPage = (req, res, next) => {
 
     res.render('groupchat/group', {
         pageTitle: 'Group',
-        name
+        groupName: name
     });
 }
