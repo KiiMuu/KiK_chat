@@ -46,6 +46,8 @@
                             <div class="message-box">
                                 <form id="message-form" method="POST">
                                     <input type="hidden" id="groupName" value="<%= groupName %>">
+                                    <input type="hidden" name="groupName" id="sender" value="<%= user.username || user.fullName %>">
+
                                     <input 
                                         class="uk-input" 
                                         type="text" 
