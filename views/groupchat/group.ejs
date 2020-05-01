@@ -42,7 +42,30 @@
                                 <h6 class="uk-text-uppercase"><%= groupName %> Club</h6>
                             </div>
                             <hr class="uk-divider-small">
-                            <div class="chat-area"></div>
+                            <div class="chat-area">
+                                <ul id="messages" class="uk-list">
+                                    <!-- <li class="uk-flex">
+                                        <span class="chat-img uk-margin-small-right">
+                                            <img src="http://placehold.it/40" class="uk-border-circle" alt="">
+                                        </span>
+                                        <div class="chat-body">
+                                            <span class="chat-name">username</span>
+                                            <div class="message-content">message body</div>
+                                        </div>
+                                    </li> -->
+                                </ul>
+                                <script id="message-template" type="text/template">
+                                    <li class="uk-flex">
+                                        <span class="chat-img uk-margin-small-right">
+                                            <img src="http://placehold.it/40" class="uk-border-circle" alt="">
+                                        </span>
+                                        <div class="chat-body">
+                                            <span class="chat-name">{{sender}}</span>
+                                            <div class="message-content">{{text}}</div>
+                                        </div>
+                                    </li>
+                                </script>
+                            </div>
                             <div class="message-box">
                                 <form id="message-form" method="POST">
                                     <input type="hidden" id="groupName" value="<%= groupName %>">

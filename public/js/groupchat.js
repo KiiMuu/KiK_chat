@@ -17,7 +17,14 @@ $(document).ready(() => {
     });
 
     socket.on('newMessage', data => {
-        console.log(data);
+        let template = $('#message-template').html();
+
+        let message = Mustache.render(template, {
+            text: data.text,
+            sender: data.from
+        });
+
+        $('#messages').append(message);
     });
 
     $('#message-form').on('submit', e => {
