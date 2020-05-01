@@ -8,12 +8,17 @@ $(document).ready(() => {
         console.log('Yea!, user connected');
 
         let params = {
-            room
+            room,
+            name: sender
         }
 
         socket.emit('join', params, () => {
             console.log('A user has joined');
         });
+    });
+
+    socket.on('usersList', users => {
+        console.log(users);
     });
 
     socket.on('newMessage', data => {
