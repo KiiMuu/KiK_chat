@@ -24,6 +24,8 @@ $(document).ready(() => {
             ol.append(`<p>${users[i]}</p>`);
         }
 
+        $('#numValue').text((`(${users.length})`));
+
         $('#users').html(ol);
     });
 
