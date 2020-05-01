@@ -18,7 +18,13 @@ $(document).ready(() => {
     });
 
     socket.on('usersList', users => {
-        console.log(users);
+        let ol = $('<ol></ol>');
+
+        for (let i = 0; i < users.length; i++) {
+            ol.append(`<p>${users[i]}</p>`);
+        }
+
+        $('#users').html(ol);
     });
 
     socket.on('newMessage', data => {
