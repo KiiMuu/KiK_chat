@@ -32,6 +32,36 @@ const userSchema = new Schema({
     google: {
         type: String,
         default: ''
+    },
+    // friend request implement
+    sentRequest: [{
+        username: {
+            type: String,
+            default: ''
+        }
+    }],
+    request: [{
+        userId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User'
+        },
+        username: {
+            type: String,
+            default: ''
+        }
+    }],
+    friendList: [{
+        friendId: {
+            type: mongoose.Schema.Types.ObjectId
+        },
+        friendName: {
+            type: String,
+            default: ''
+        }
+    }],
+    totalRequest: {
+        type: Number,
+        default: 0
     }
 });
 
