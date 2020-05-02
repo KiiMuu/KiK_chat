@@ -36,6 +36,7 @@ passport.use(new GoogleStrategy({
             let newUser = new User();
             newUser.google = profile.id;
             newUser.fullName = profile.displayName;
+            newUser.username = profile.displayName;
             newUser.email = profile.emails[0].value;
             newUser.userImage = `https://people.googleapis.com/v1/people/${profile.id}?personFields=photos`;
 

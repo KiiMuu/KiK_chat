@@ -21,7 +21,7 @@ $(document).ready(() => {
         let ol = $('<ol></ol>');
 
         for (let i = 0; i < users.length; i++) {
-            ol.append(`<p>${users[i]}</p>`);
+            ol.append(`<p><a href="#view-user" id="val" uk-toggle>${users[i]}</a></p>`);
         }
 
         $('#numValue').text((`(${users.length})`));

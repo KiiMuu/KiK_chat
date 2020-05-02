@@ -9,6 +9,18 @@
                     <div class="uk-navbar-right">
                         <ul class="uk-navbar-nav uk-visible@m">
                             <li><a href="/">Home</a></li>
+                            <li>
+                                <a href="#"><%= user.username %> <i class="fa fa-angle-down"></i></a>
+                                <div uk-dropdown="mode: click; animation: uk-animation-slide-top-small;">
+                                    <ul>
+                                        <li>Link</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <!-- <div class="uk-inline">
+                                <button class="uk-button uk-button-default" type="button">Click</button>
+                                <div uk-dropdown="mode: click">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
+                            </div> -->
                             <li><a href="/signup">Sign Up</a></li>
                             <li><a href="/signin">Sign In</a></li>
                         </ul>

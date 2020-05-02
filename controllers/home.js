@@ -39,7 +39,8 @@ exports.homePage = (req, res, next) => {
         res.render('home', {
             pageTitle: 'Home',
             data: dataChunk,
-            country: sortCountry
+            country: sortCountry,
+            user: req.user
         });
     });
 }

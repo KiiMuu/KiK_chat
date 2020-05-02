@@ -1,7 +1,7 @@
 <%- include('../includes/head.ejs') %>
 <%- include('../includes/navigation.ejs') %>
-<div class="group uk-margin-medium-top">
-    <div class="uk-container">
+<div class="group">
+    <div class="">
         <div class="uk-grid-small" uk-grid>
             <div class="uk-width-1-4@m">
                 <div class="myprofile uk-margin-small-bottom uk-box-shadow-medium uk-text-center">
@@ -35,77 +35,75 @@
                 </div>
             </div>
             <div class="uk-width-3-4@m">
-                <div class="uk-grid-small" uk-grid>
-                    <div class="uk-width-2-3@m">
-                        <div class="chating-box uk-box-shadow-medium">
-                            <div class="heading">
+                <div class="chating-box uk-box-shadow-medium">
+                    <div class="chating-box-top">
+                        <div class="uk-child-width-1-2@s" uk-grid>
+                            <div class="uk-text-left">
                                 <h6 class="uk-text-uppercase"><%= groupName %> Club</h6>
                             </div>
-                            <hr class="uk-divider-small">
-                            <div class="chat-area">
-                                <ul id="messages" class="uk-list">
-                                    <!-- <li class="uk-flex">
-                                        <span class="chat-img uk-margin-small-right">
-                                            <img src="http://placehold.it/40" class="uk-border-circle" alt="">
-                                        </span>
-                                        <div class="chat-body">
-                                            <span class="chat-name">username</span>
-                                            <div class="message-content">message body</div>
-                                        </div>
-                                    </li> -->
-                                </ul>
-                                <script id="message-template" type="text/template">
-                                    <li class="uk-flex">
-                                        <span class="chat-img uk-margin-small-right">
-                                            <img src="http://placehold.it/40" class="uk-border-circle" alt="">
-                                        </span>
-                                        <div class="chat-body">
-                                            <span class="chat-name">{{sender}}</span>
-                                            <div class="message-content">{{text}}</div>
-                                        </div>
-                                    </li>
-                                </script>
-                            </div>
-                            <div class="message-box">
-                                <form id="message-form" method="POST">
-                                    <input type="hidden" id="groupName" value="<%= groupName %>">
-                                    <input type="hidden" name="groupName" id="sender" value="<%= user.username || user.fullName %>">
+                            <div>
+                                <div class="club-fans">
+                                    <div class="online-club">
+                                        <span type="button" uk-toggle="target: #offcanvas-flip">Online Club</span>
+        
+                                        <div id="offcanvas-flip" uk-offcanvas="flip: true; overlay: true">
+                                            <div class="uk-offcanvas-bar">
+                                                <button class="uk-offcanvas-close" type="button" uk-close></button>
+        
+                                                <div class="heading">
+                                                    <h6 class="uk-text-uppercase"><i class="fa fa-users"></i>Online Club Fans <span id="numValue"></span></h6>
+                                                </div>
+                                                <hr class="uk-divider-small">
+                                                <div id="view-user" class="uk-flex-top" uk-modal>
+                                                    <div class="uk-modal-dialog uk-modal-body uk-text-center">
+                                                        <button class="uk-modal-close-outside" type="button" uk-close></button>
+                                                        <form action="" method="POST" id="add-friend">
+                                                            <input type="hidden" name="recieverName" id="recieverName" value="">
+                                                            <input type="hidden" name="senderName" id="senderName" value="<%= user.username %>">
+                                                            <button type="submit" id="friend-add" class="uk-text-uppercase"><i class="fa fa-user-plus"></i> Add Friend</button>
+                                                            <a id="nameLink" class="uk-text-uppercase">View Profile</a>
 
-                                    <input 
-                                        class="uk-input" 
-                                        type="text" 
-                                        name="message" 
-                                        id="msg" 
-                                        placeholder="Type a message"
-                                    >
-                                    <button id="send-message" title="Send"><i class="fa fa-telegram" aria-hidden="true"></i></button>
-                                </form>
+                                                            <div id="myTest"></div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <div id="users"></div>
+                                            </div>
+                                        </div>    
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="uk-width-1-3@m">
-                        <div class="club-fans">
-                            <div class="uk-visible@m">
-                                <div class="online-club uk-box-shadow-medium">
-                                    <div class="heading">
-                                        <h6 class="uk-text-uppercase"><i class="fa fa-users"></i>Online Club Fans <span id="numValue"></span></h6>
-                                    </div>
-                                    <hr class="uk-divider-small">
-                                    <div id="users"></div>
+                    <hr class="uk-divider-small">
+                    <div class="chat-area">
+                        <ul id="messages" class="uk-list"></ul>
+                        <script id="message-template" type="text/template">
+                            <li class="uk-flex">
+                                <span class="chat-img uk-margin-small-right">
+                                    <img src="http://placehold.it/40" class="uk-border-circle" alt="">
+                                </span>
+                                <div class="chat-body">
+                                    <span class="chat-name">{{sender}}</span>
+                                    <div class="message-content">{{text}}</div>
                                 </div>
-                            </div>
-                            <div class="uk-hidden@m">
-                                <button class="uk-button uk-button-default" type="button" uk-toggle="target: #offcanvas-flip">Open</button>
+                            </li>
+                        </script>
+                    </div>
+                    <div class="message-box">
+                        <form id="message-form" method="POST">
+                            <input type="hidden" id="groupName" value="<%= groupName %>">
+                            <input type="hidden" name="groupName" id="sender" value="<%= user.username %>">
 
-                                <div id="offcanvas-flip" uk-offcanvas="flip: true; overlay: true">
-                                    <div class="uk-offcanvas-bar">
-                                        <button class="uk-offcanvas-close" type="button" uk-close></button>
-
-                                        Online Club fans
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            <input 
+                                class="uk-input" 
+                                type="text" 
+                                name="message" 
+                                id="msg" 
+                                placeholder="Type a message"
+                            >
+                            <button id="send-message" title="Send"><i class="fa fa-telegram" aria-hidden="true"></i></button>
+                        </form>
                     </div>
                 </div>
             </div>

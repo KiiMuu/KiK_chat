@@ -363,6 +363,8 @@
     .chating-box {
         border: 1px solid #e2e2e2;
         padding: 30px;
+        // position: fixed;
+        // width: 100%;
         .chat-area {
             height: 300px;
             overflow-x: hidden;
@@ -421,8 +423,8 @@
 
     .club-fans {
         .online-club {
-            border: 1px solid #e2e2e2;
-            padding: 30px;
+            // border: 1px solid #e2e2e2;
+            // padding: 30px;
             .heading {
                 i {
                     margin-right: 8px;
