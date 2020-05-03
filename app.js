@@ -36,6 +36,7 @@ mongoose.connect(MONGO_URI, {
 
 // socket.io
 require('./socket/groupchat')(io, Users);
+require('./socket/friend')(io);
 
 // get routes
 const usersRoutes = require('./routes/users');

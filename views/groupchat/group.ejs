@@ -27,7 +27,7 @@
                         <a href="#" class="uk-button uk-button-text"><i class="fa fa-user"></i> My Profile</a>
                     </div>
                 </div>
-                <div class="online-friends uk-box-shadow-medium">
+                <div class="online-friends uk-margin-small-bottom uk-box-shadow-medium">
                     <div class="heading">
                         <h6 class="uk-text-uppercase"><span class="online-dot"></span> Online Friends</h6>
                     </div>
@@ -37,27 +37,28 @@
             <div class="uk-width-3-4@m">
                 <div class="chating-box uk-box-shadow-medium">
                     <div class="chating-box-top">
-                        <div class="uk-child-width-1-2@s" uk-grid>
+                        <div class="uk-child-width-1-2" uk-grid>
                             <div class="uk-text-left">
                                 <h6 class="uk-text-uppercase"><%= groupName %> Club</h6>
                             </div>
-                            <div>
+                            <div class="uk-text-right">
                                 <div class="club-fans">
                                     <div class="online-club">
-                                        <span type="button" uk-toggle="target: #offcanvas-flip">Online Club</span>
+                                        <h6 class="uk-text-uppercase" uk-toggle="target: #offcanvas-flip">Club Fans <i class="fa fa-angle-right"></i></h6>
         
                                         <div id="offcanvas-flip" uk-offcanvas="flip: true; overlay: true">
                                             <div class="uk-offcanvas-bar">
                                                 <button class="uk-offcanvas-close" type="button" uk-close></button>
         
-                                                <div class="heading">
+                                                <div class="heading uk-text-left">
                                                     <h6 class="uk-text-uppercase"><i class="fa fa-users"></i>Online Club Fans <span id="numValue"></span></h6>
                                                 </div>
-                                                <hr class="uk-divider-small">
+                                                <hr class="uk-divider-small uk-text-left">
                                                 <div id="view-user" class="uk-flex-top" uk-modal>
-                                                    <div class="uk-modal-dialog uk-modal-body uk-text-center">
+                                                    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical uk-text-center">
                                                         <button class="uk-modal-close-outside" type="button" uk-close></button>
-                                                        <form action="" method="POST" id="add-friend">
+                                                        <h3 id="name"></h3>
+                                                        <form action="" method="GET" id="add-friend">
                                                             <input type="hidden" name="recieverName" id="recieverName" value="">
                                                             <input type="hidden" name="senderName" id="senderName" value="<%= user.username %>">
                                                             <button type="submit" id="friend-add" class="uk-text-uppercase"><i class="fa fa-user-plus"></i> Add Friend</button>
@@ -67,7 +68,7 @@
                                                         </form>
                                                     </div>
                                                 </div>
-                                                <div id="users"></div>
+                                                <div id="users" class="uk-text-left"></div>
                                             </div>
                                         </div>    
                                     </div>

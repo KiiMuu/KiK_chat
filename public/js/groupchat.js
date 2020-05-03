@@ -21,8 +21,15 @@ $(document).ready(() => {
         let ol = $('<ol></ol>');
 
         for (let i = 0; i < users.length; i++) {
-            ol.append(`<p><a href="#view-user" id="val" uk-toggle>${users[i]}</a></p>`);
+            ol.append('<p><a href="#view-user" id="val" uk-toggle>'+users[i]+'</a></p>');
         }
+
+        $(document).on('click', '#val', function(e) {
+            e.preventDefault();
+            $('#name').text('@'+$(this).text());
+            $('#recieverName').val($(this).text());
+            $('#nameLink').attr('href', '/profile/'+$(this).text());
+        });
 
         $('#numValue').text((`(${users.length})`));
 

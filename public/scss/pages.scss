@@ -423,14 +423,69 @@
 
     .club-fans {
         .online-club {
-            // border: 1px solid #e2e2e2;
-            // padding: 30px;
+            h6 {
+                cursor: pointer;
+                i {
+                    font-size: 18px;
+                    margin-left: 3px;
+                }
+            }
+            // sidebar
+            .uk-offcanvas-bar {
+                background: $mainLight;
+                padding: 40px 20px;
+            }
             .heading {
+                h6 {
+                    color: $mainDark;
+                }
                 i {
                     margin-right: 8px;
                     color: $mainColor;
                 }
             }
+            .uk-divider-small {
+                &::after {
+                    border-bottom: 1px solid rgba(0, 0, 0, .09);
+                }
+            }
+            #users {
+                ol {
+                    padding-left: 0;
+                    a {
+                        color: $mainDark;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.uk-modal-body {
+    h3 {
+        color: #1e87f0;
+        font-size: 20px;
+    }
+    form {
+        button {
+            background: #fff;
+            color: #248af0;
+            margin-right: 10px;
+            border: 1px solid rgba(0, 0, 0, .17);
+            padding: 10px;
+            border-radius: 2px;
+            cursor: pointer;
+            i {
+                margin-right: 5px;
+                font-size: 15px;
+            }
+        }
+        a {
+            background: #fff;
+            color: #248af0;
+            padding: 10px;
+            font-size: 15px;
         }
     }
 }

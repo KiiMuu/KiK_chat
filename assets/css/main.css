@@ -432,9 +432,53 @@ body, html {
         cursor: pointer;
         font-size: 30px; }
 
+.group .club-fans .online-club h6 {
+  cursor: pointer; }
+  .group .club-fans .online-club h6 i {
+    font-size: 18px;
+    margin-left: 3px; }
+
+.group .club-fans .online-club .uk-offcanvas-bar {
+  background: #F3F3F3;
+  padding: 40px 20px; }
+
+.group .club-fans .online-club .heading h6 {
+  color: #262626; }
+
 .group .club-fans .online-club .heading i {
   margin-right: 8px;
   color: #00B5B5; }
+
+.group .club-fans .online-club .uk-divider-small::after {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.09); }
+
+.group .club-fans .online-club #users ol {
+  padding-left: 0; }
+  .group .club-fans .online-club #users ol a {
+    color: #262626;
+    text-decoration: none; }
+
+.uk-modal-body h3 {
+  color: #1e87f0;
+  font-size: 20px; }
+
+.uk-modal-body form button {
+  background: #fff;
+  color: #248af0;
+  margin-right: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.17);
+  padding: 10px;
+  border-radius: 2px;
+  cursor: pointer; }
+  .uk-modal-body form button i {
+    margin-right: 5px;
+    font-size: 15px; }
+
+.uk-modal-body form a {
+  background: #fff;
+  color: #248af0;
+  padding: 10px;
+  font-size: 15px; }
 
 @media (max-width: 640px) {
   .signup-control .signin-btn, .signup-control .signup-btn, .signin-control .signin-btn, .signin-control .signup-btn {
