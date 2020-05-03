@@ -434,6 +434,9 @@
             .uk-offcanvas-bar {
                 background: $mainLight;
                 padding: 40px 20px;
+                .uk-offcanvas-close {
+                    color: $mainDark !important;
+                }
             }
             .heading {
                 h6 {

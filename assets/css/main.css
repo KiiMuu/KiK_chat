@@ -441,6 +441,8 @@ body, html {
 .group .club-fans .online-club .uk-offcanvas-bar {
   background: #F3F3F3;
   padding: 40px 20px; }
+  .group .club-fans .online-club .uk-offcanvas-bar .uk-offcanvas-close {
+    color: #262626 !important; }
 
 .group .club-fans .online-club .heading h6 {
   color: #262626; }
