@@ -121,12 +121,12 @@ $(document).ready(() => {
         let recieverName = $('#recieverName').val();
 
         $.ajax({
-            url: `group/${room}`,
+            url: `/group/${room}`,
             type: 'POST',
             data: {
                 recieverName
             },
-            succes: () => {
+            success: () => {
                 socket.emit('friendRequest', {
                     reciever: recieverName,
                     sender
