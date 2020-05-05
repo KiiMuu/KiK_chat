@@ -30,8 +30,11 @@
                                                             </div>
                                                         </div>
                                                         <div class="action uk-text-right">
+                                                            <input type="hidden" name="senderId" id="senderId" value="<%= val.userId._id %>">
+                                                            <input type="hidden" name="senderName" id="senderName" value="<%= val.username %>">
                                                             <button type="submit" name="accept" id="accept-friend" title="Accept"><i class="fa fa-check"></i></button>
 
+                                                            <input type="hidden" name="user-id" id="user-id" value="<%= val.userId._id %>">
                                                             <button type="submit" name="cancel" id="cancel-friend" title="Decline"><i class="fa fa-times"></i></button>
                                                         </div>
                                                     <% }) %>
@@ -53,10 +56,6 @@
                                     </ul>
                                 </div>
                             </li>
-                            <!-- <div class="uk-inline">
-                                <button class="uk-button uk-button-default" type="button">Click</button>
-                                <div uk-dropdown="mode: click">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
-                            </div> -->
                             <li><a href="/signup">Sign Up</a></li>
                             <li><a href="/signin">Sign In</a></li>
                         </ul>

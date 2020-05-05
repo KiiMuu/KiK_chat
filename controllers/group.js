@@ -67,4 +67,65 @@ exports.groupPostPage = (req, res, next) => {
     ], (err, results) => {
         res.redirect(`/group/${req.params.name}`);
     });
+
+    // update data when accepting friend request
+    async.parallel([
+        // updating at reciever
+        (cb) => {
+            if (req.body.senderId) {
+                Users.updateOne({
+                    '_id': req.user._id,
+                    'friendList.friendId': {
+                        $ne: req.body.senderId
+                    }
+                }, {
+                    $push: {
+                        friendList: {
+                            friendId: req.body.senderId,
+                            friendName: req.body.senderName
+                        }
+                    },
+                    $pull: {
+                        request: {
+                            userId: req.body.senderId,
+                            username: req.body.senderName
+                        }
+                    },
+                    $inc: {
+                        totalRequest: -1
+                    }
+                }, (err, count) => {
+                    cb(err, count);
+                });
+            }
+        },
+
+        // updating at sender
+        (cb) => {
+            if (req.body.senderId) {
+                Users.updateOne({
+                    '_id': req.body.senderId,
+                    'friendList.friendId': {
+                        $ne: req.user._id
+                    }
+                }, {
+                    $push: {
+                        friendList: {
+                            friendId: req.user._id,
+                            friendName: req.user.username
+                        }
+                    },
+                    $pull: {
+                        sentRequest: {
+                            username: req.user.username
+                        }
+                    }
+                }, (err, count) => {
+                    cb(err, count);
+                });
+            }
+        }
+    ], (err, results) => {
+        res.redirect(`/group/${req.params.name}`);
+    });
 }

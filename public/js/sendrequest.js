@@ -40,4 +40,24 @@ $(document).ready(() => {
             }
         });
     });
+
+    $('#accept-friend').on('click', () => {
+        let senderId = $('#senderId').val();
+        let senderName = $('#senderName').val();
+
+        $.ajax({
+            url: `/group/${room}`,
+            type: 'POST',
+            data: {
+                senderId,
+                senderName
+            },
+            success: () => {
+                // if I click accept button, remove the user data from notification
+                $(this).parent().eq(1).remove();
+            }
+        });
+
+        $('#reload').load(location.href + ' #reload');
+    });
 });
