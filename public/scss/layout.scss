@@ -62,13 +62,14 @@
                 height: 25px;
                 border-radius: 2px;
                 color: $mainLight;
-                &:first-child {
-                    background: #1e87f0;
-                    margin-right: 3px;
-                }
-                &:last-child {
-                    background: #dc3545;
-                }
+                outline: none;
+            }
+            .accept {
+                background: #1e87f0;
+                margin-right: 3px;
+            }
+            .decline {
+                background: #dc3545;
             }
         }
     }

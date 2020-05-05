@@ -134,6 +134,23 @@ $(document).ready(() => {
     
             $('#reload').load(location.href + ' #reload');
         });
+
+        $(document).on('click', '#decline-friend', function() {
+            let user_id = $('#user_id').val();
+    
+            $.ajax({
+                url: `/group/${room}`,
+                type: 'POST',
+                data: {
+                    user_id
+                },
+                success: () => {
+                    $(this).parent().eq(1).remove();
+                }
+            });
+    
+            $('#reload').load(location.href + ' #reload');
+        });
     });
 
     $('#add-friend').on('submit', e => {
@@ -168,6 +185,23 @@ $(document).ready(() => {
             data: {
                 senderId,
                 senderName
+            },
+            success: () => {
+                $(this).parent().eq(1).remove();
+            }
+        });
+
+        $('#reload').load(location.href + ' #reload');
+    });
+
+    $('#decline-friend').on('click', () => {
+        let user_id = $('#user_id').val();
+
+        $.ajax({
+            url: `/group/${room}`,
+            type: 'POST',
+            data: {
+                user_id
             },
             success: () => {
                 $(this).parent().eq(1).remove();

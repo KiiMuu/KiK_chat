@@ -126,10 +126,46 @@ exports.groupPostPage = (req, res, next) => {
             }
         },
 
-        // decline friend request
+        // decline friend request at reciever
         (cb) => {
             if (req.body.user_id) {
+                Users.updateOne({
+                    '_id': req.user._id,
+                    'request.userId': {
+                        $eq: req.body.user_id
+                    }
+                }, {
+                    $pull: {
+                        request: {
+                            userId: req.body.user_id
+                        }
+                    },
+                    $inc: {
+                        totalRequest: -1
+                    }
+                }, (err, count) => {
+                    cb(err, count);
+                });
+            }
+        },
 
+        // update data at sender
+        (cb) => {
+            if (req.body.user_id) {
+                Users.updateOne({
+                    '_id': req.body.user_id,
+                    'sentRequest.username': {
+                        $eq: req.user.username
+                    }
+                }, {
+                    $pull: {
+                        sentRequest: {
+                            username: req.user.username
+                        }
+                    }
+                }, (err, count) => {
+                    cb(err, count);
+                });
             }
         }
     ], (err, results) => {

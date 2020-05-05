@@ -38,12 +38,13 @@ body, html {
     width: 35px;
     height: 25px;
     border-radius: 2px;
-    color: #F3F3F3; }
-    .navbar .friend-requests .action button:first-child {
-      background: #1e87f0;
-      margin-right: 3px; }
-    .navbar .friend-requests .action button:last-child {
-      background: #dc3545; }
+    color: #F3F3F3;
+    outline: none; }
+  .navbar .friend-requests .action .accept {
+    background: #1e87f0;
+    margin-right: 3px; }
+  .navbar .friend-requests .action .decline {
+    background: #dc3545; }
   .navbar .uk-navbar-right .open-btn {
     border: none;
     line-height: 0; }
