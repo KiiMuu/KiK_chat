@@ -112,7 +112,8 @@ $(document).ready(() => {
     });
 
     socket.on('newFriendRequest', friend => {
-        console.log(friend);
+        // show friend request notification without reloading page
+        $('#reload').load(location.href + ' #reload');
     });
 
     $('#add-friend').on('submit', e => {

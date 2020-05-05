@@ -27,20 +27,23 @@ body, html {
     border-radius: 2px; }
   .navbar .friend-requests h6 {
     color: #262626; }
-  .navbar .friend-requests .action {
-    margin-top: 7px; }
-    .navbar .friend-requests .action button {
-      cursor: pointer;
-      border: none;
-      width: 35px;
-      height: 25px;
-      border-radius: 2px;
-      color: #F3F3F3; }
-      .navbar .friend-requests .action button:first-child {
-        background: #1e87f0;
-        margin-right: 3px; }
-      .navbar .friend-requests .action button:last-child {
-        background: #dc3545; }
+  .navbar .friend-requests .friend-img img {
+    margin-bottom: 6px; }
+  .navbar .friend-requests .friend-img span {
+    font-size: 14px;
+    color: #1e87f0; }
+  .navbar .friend-requests .action button {
+    cursor: pointer;
+    border: none;
+    width: 35px;
+    height: 25px;
+    border-radius: 2px;
+    color: #F3F3F3; }
+    .navbar .friend-requests .action button:first-child {
+      background: #1e87f0;
+      margin-right: 3px; }
+    .navbar .friend-requests .action button:last-child {
+      background: #dc3545; }
   .navbar .uk-navbar-right .open-btn {
     border: none;
     line-height: 0; }

@@ -45,8 +45,16 @@
         h6 {
             color: $mainDark;
         }
+        .friend-img {
+            img {
+                margin-bottom: 6px;
+            }
+            span {
+                font-size: 14px;
+                color: #1e87f0;
+            }
+        }
         .action {
-            margin-top: 7px;
             button {
                 cursor: pointer;
                 border: none;

@@ -24,8 +24,10 @@
                                                 <% if (data.request && data.request.length > 0) { %>
                                                     <% data.request.forEach(val => { %>
                                                         <div class="friend-img uk-text-left">
-                                                            <img src="http://placehold.it/40" class="uk-border-circle" alt="">
-                                                            <span><%= val.username %></span>
+                                                            <img src="http://placehold.it/40" alt="<%= val.username %>">
+                                                            <div>
+                                                                <a href="#" title="View Profile"><span><%= val.username %></span></a>
+                                                            </div>
                                                         </div>
                                                         <div class="action uk-text-right">
                                                             <button type="submit" name="accept" id="accept-friend" title="Accept"><i class="fa fa-check"></i></button>
