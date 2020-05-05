@@ -124,6 +124,13 @@ exports.groupPostPage = (req, res, next) => {
                     cb(err, count);
                 });
             }
+        },
+
+        // decline friend request
+        (cb) => {
+            if (req.body.user_id) {
+
+            }
         }
     ], (err, results) => {
         res.redirect(`/group/${req.params.name}`);
