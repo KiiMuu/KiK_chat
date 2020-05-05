@@ -29,9 +29,10 @@
             font-size: 15px !important;
         }
         .uk-badge {
-            background: #dc3545;
-            min-width: 20px;
-            height: 20px;
+            background: $mainDark;
+            min-width: 17px;
+            height: 17px;
+            font-size: 14px;
         }
     }
 

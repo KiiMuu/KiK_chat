@@ -13,7 +13,6 @@ exports.groupPage = (req, res, next) => {
         }
     ], (err, results) => {
         const result1 = results[0];
-        console.log(result1.request[0].userId);
         
         res.render('groupchat/group', {
             pageTitle: 'Group',
