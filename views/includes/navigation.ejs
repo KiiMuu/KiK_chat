@@ -6,9 +6,29 @@
                     <div class="uk-navbar-left">
                         <a class="uk-navbar-item uk-logo uk-text-uppercase" href="/">K<span class="uk-text-lowercase">i</span>K <sub>chat</sub></a>
                     </div>
-                    <div class="uk-navbar-right">
+                    <div class="uk-navbar-right" id="reload">
                         <ul class="uk-navbar-nav uk-visible@m">
                             <li><a href="/">Home</a></li>
+                            <li>
+                                <a href="#" title="Notifications"><i class="fa fa-bell"></i><span class="uk-badge">1</span></a>
+                                <div class="uk-width-large" uk-dropdown="mode: click; animation: uk-animation-slide-top-small;">
+                                    <div class="friend-requests">
+                                        <h6 class="uk-text-uppercase">Friend Requests</h6>
+                                        <div class="content">
+                                            <div class="uk-child-width-1-2" uk-grid>
+                                                <div class="friend-img uk-text-left">
+                                                    <img src="http://placehold.it/40" class="uk-border-circle" alt="">
+                                                </div>
+                                                <div class="action uk-text-right">
+                                                    <button type="submit" name="accept" id="accept-friend" title="Accept"><i class="fa fa-check"></i></button>
+
+                                                    <button type="submit" name="cancel" id="cancel-friend" title="Decline"><i class="fa fa-times"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
                             <li>
                                 <a href="#"><%= user.username %> <i class="fa fa-angle-down"></i></a>
                                 <div uk-dropdown="mode: click; animation: uk-animation-slide-top-small;">

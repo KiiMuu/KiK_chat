@@ -5,10 +5,22 @@ const Users = require('../models/user');
 exports.groupPage = (req, res, next) => {
     const name = req.params.name;
 
-    res.render('groupchat/group', {
-        pageTitle: 'Group',
-        groupName: name,
-        user: req.user
+    async.parallel([
+        (cb) => {
+            Users.findOne({ 'username': req.user.username }).populate('request.userId').exec((err, result) => {
+                cb(err, result);
+            });
+        }
+    ], (err, results) => {
+        const result1 = results[0];
+        console.log(result1.request[0].userId);
+        
+        res.render('groupchat/group', {
+            pageTitle: 'Group',
+            groupName: name,
+            user: req.user,
+            data: result1
+        });
     });
 }
 
@@ -39,7 +51,7 @@ exports.groupPostPage = (req, res, next) => {
 
         (cb) => {
             if (req.body.recieverName) {
-                Users.update({
+                Users.updateOne({
                     'username': req.user.username,
                     'sentRequest.username': {$ne: req.body.recieverName}
                 }, {

@@ -24,6 +24,46 @@
         }
     }
 
+    a[title="Notifications"] {
+        i {
+            font-size: 15px !important;
+        }
+        .uk-badge {
+            background: #dc3545;
+            min-width: 20px;
+            height: 20px;
+        }
+    }
+
+    .uk-dropdown {
+        border: 1px solid #e2e2e2;
+        border-radius: 2px;
+    }
+
+    .friend-requests {
+        h6 {
+            color: $mainDark;
+        }
+        .action {
+            margin-top: 7px;
+            button {
+                cursor: pointer;
+                border: none;
+                width: 35px;
+                height: 25px;
+                border-radius: 2px;
+                color: $mainLight;
+                &:first-child {
+                    background: #1e87f0;
+                    margin-right: 3px;
+                }
+                &:last-child {
+                    background: #dc3545;
+                }
+            }
+        }
+    }
+
     // sidebar btn
     .uk-navbar-right {
         .open-btn {

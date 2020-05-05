@@ -15,6 +15,31 @@ body, html {
     .navbar .uk-navbar-nav li a i {
       font-size: 20px;
       margin-left: 5px; }
+  .navbar a[title="Notifications"] i {
+    font-size: 15px !important; }
+  .navbar a[title="Notifications"] .uk-badge {
+    background: #dc3545;
+    min-width: 20px;
+    height: 20px; }
+  .navbar .uk-dropdown {
+    border: 1px solid #e2e2e2;
+    border-radius: 2px; }
+  .navbar .friend-requests h6 {
+    color: #262626; }
+  .navbar .friend-requests .action {
+    margin-top: 7px; }
+    .navbar .friend-requests .action button {
+      cursor: pointer;
+      border: none;
+      width: 35px;
+      height: 25px;
+      border-radius: 2px;
+      color: #F3F3F3; }
+      .navbar .friend-requests .action button:first-child {
+        background: #1e87f0;
+        margin-right: 3px; }
+      .navbar .friend-requests .action button:last-child {
+        background: #dc3545; }
   .navbar .uk-navbar-right .open-btn {
     border: none;
     line-height: 0; }
