@@ -24,7 +24,9 @@ $(document).ready(() => {
         for (let i = 0; i < users.length; i++) {
             if (friend.indexOf(users[i].name) > -1) {
                 arr.push(users[i]);
-                ol.append(users[i].name);
+                let list = '<img src="http://placehold.it/40" class="uk-border-circle uk-text-left" style="width: 40px; float: left; margin-right: 15px" /><p>' +
+                '<a id="val" href="/chat"><h3 style="padding-top: 5px; font-size: 20px">'+'@'+users[i].name+'</h3></a></p>';
+                ol.append(list);
             }
         }
 
