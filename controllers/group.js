@@ -172,3 +172,10 @@ exports.groupPostPage = (req, res, next) => {
         res.redirect(`/group/${req.params.name}`);
     });
 }
+
+exports.logout = (req, res, next) => {
+    req.logout();
+    req.session.destroy(err => {
+        res.redirect('/');
+    });
+}

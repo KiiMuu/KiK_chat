@@ -85,3 +85,10 @@ exports.postHomePage = (req, res, next) => {
         res.redirect('/clubs');
     });
 }
+
+exports.logout = (req, res, next) => {
+    req.logout();
+    req.session.destroy(err => {
+        res.redirect('/');
+    });
+}

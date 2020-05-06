@@ -10,5 +10,8 @@ router.get('/clubs', homeController.homePage);
 
 router.post('/clubs', homeController.postHomePage);
 
+// logout
+router.get('/logout', homeController.logout);
+
 
 module.exports = router;

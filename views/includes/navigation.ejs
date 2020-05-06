@@ -50,9 +50,9 @@
                             </li>
                             <li>
                                 <a href="#"><%= user.username %> <i class="fa fa-angle-down"></i></a>
-                                <div uk-dropdown="mode: click; animation: uk-animation-slide-top-small;">
-                                    <ul>
-                                        <li>Link</li>
+                                <div class="user-actions" uk-dropdown="mode: click; animation: uk-animation-slide-top-small;">
+                                    <ul class="uk-nav uk-dropdown-nav">
+                                        <li><a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>
                                     </ul>
                                 </div>
                             </li>

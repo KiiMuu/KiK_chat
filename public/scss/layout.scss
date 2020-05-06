@@ -41,6 +41,24 @@
         border-radius: 2px;
     }
 
+    .user-actions {
+        ul {
+            a {
+                color: $mainDark;
+                &:hover, &:active {
+                    color: inherit;
+                    text-decoration: none;
+                }
+
+                i {
+                    margin-right: 6px;
+                    color: $mainColor;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+
     .friend-requests {
         h6 {
             color: $mainDark;
@@ -83,24 +101,6 @@
                 font-size: 28px;
                 color: $mainLight;
             }
-        }
-        .logout-btn {
-            background: none;
-            border: none;
-            color: $mainLight;
-            min-height: 67px;
-            text-transform: uppercase;
-            transition: .1s ease-in-out;
-            transition-property: color,background-color;
-            cursor: pointer;
-            font-size: 19px;
-            &:hover, &:active {
-                color: #fff;
-            }
-        }
-        .uk-badge {
-            margin-top: -16px;
-            background: $mainDark;
         }
     }
 
