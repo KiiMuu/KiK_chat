@@ -4,11 +4,11 @@
             <div class="uk-container">
                 <nav uk-navbar>
                     <div class="uk-navbar-left">
-                        <a class="uk-navbar-item uk-logo uk-text-uppercase" href="/">K<span class="uk-text-lowercase">i</span>K <sub>chat</sub></a>
+                        <a class="uk-navbar-item uk-logo uk-text-uppercase" href="/clubs">K<span class="uk-text-lowercase">i</span>K <sub>chat</sub></a>
                     </div>
                     <div class="uk-navbar-right" id="reload">
                         <ul class="uk-navbar-nav uk-visible@m">
-                            <li><a href="/">Home</a></li>
+                            <li><a href="/clubs">Clubs</a></li>
                             <li>
                                 <a href="#" title="Notifications">
                                     <i class="fa fa-bell"></i>
@@ -21,7 +21,7 @@
                                         <h6 class="uk-text-uppercase">Friend Requests</h6>
                                         <div class="content">
                                             <div class="uk-child-width-1-2" uk-grid>
-                                                <% if (data.request && data.request.length > 0) { %>
+                                                <% if (data.request.length > 0) { %>
                                                     <% data.request.forEach(val => { %>
                                                         <div class="friend-img uk-text-left">
                                                             <img src="http://placehold.it/40" alt="<%= val.username %>">
@@ -67,7 +67,7 @@
                                     <button class="uk-offcanvas-close" type="button" uk-close></button>
                                     <h3 class="uk-text-uppercase">KiK <sub>chat</sub></h3>
                                     <ul class="uk-nav uk-nav-default">
-                                        <li><a href="/">Home</a></li>
+                                        <li><a href="/clubs">Clubs</a></li>
                                         <li><a href="/signup">Sign Up</a></li>
                                         <li><a href="/signin">Sign In</a></li>
                                     </ul>

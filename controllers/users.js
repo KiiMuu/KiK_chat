@@ -17,7 +17,7 @@ exports.getSignUp = (req, res, next) => {
 
 // POST signup
 exports.postSignUp = passport.authenticate('local.signup', {
-    successRedirect: '/',
+    successRedirect: '/clubs',
     failureRedirect: 'signup',
     failureFlash: true
 })
@@ -38,7 +38,7 @@ exports.getSignIn = (req, res, next) => {
 
 // POST signin
 exports.postSignIn = passport.authenticate('local.signin', {
-    successRedirect: '/',
+    successRedirect: '/clubs',
     failureRedirect: 'signin',
     failureFlash: true
 })
@@ -49,7 +49,7 @@ exports.getFacebookAuth = passport.authenticate('facebook', {
 });
 
 exports.facebookAuth = passport.authenticate('facebook', {
-    successRedirect: '/',
+    successRedirect: '/clubs',
     failureRedirect: 'signup',
     failureFlash: true
 });
@@ -64,7 +64,7 @@ exports.getGoogleAuth = passport.authenticate('google', {
 });
 
 exports.googleAuth = passport.authenticate('google', {
-    successRedirect: '/',
+    successRedirect: '/clubs',
     failureRedirect: 'signup',
     failureFlash: true
 });

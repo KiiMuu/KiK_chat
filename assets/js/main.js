@@ -60,15 +60,26 @@ $(document).ready(() => {
         });
     });
 });
-// // set dynamic backgournd to nav based on route location
-// let navBack = document.getElementById('nav');
+$(document).ready(() => {
+    $('#favorite').on('submit', e => {
+        e.preventDefault();
 
-// if (location.pathname === '/signup') {
-//     navBack.style.background = 'transparent';
-// } else {
-//     navBack.style.background = '#00B5B5';
-// }
+        let id = $('#id').val();
+        let clubName = $('#club_name').val();
 
+        $.ajax({
+            url: '/clubs',
+            type: 'POST',
+            data: {
+                id,
+                clubName
+            },
+            success: () => {
+                console.log(clubName);
+            }
+        });
+    });
+});
 $(document).ready(() => {
     $('.upload-btn').on('click', () => {
         $('#upload-input').click();

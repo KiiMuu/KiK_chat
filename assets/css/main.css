@@ -2,7 +2,7 @@ body, html {
   font-family: 'Montserrat', sans-serif; }
 
 .navbar {
-  background: #00B5B5; }
+  background: #8e44ad; }
   .navbar .uk-logo {
     color: #F3F3F3;
     font-size: 25px !important; }
@@ -67,7 +67,7 @@ body, html {
     margin-top: -16px;
     background: #262626; }
   .navbar .uk-offcanvas-bar {
-    background-color: #00B5B5; }
+    background-color: #8e44ad; }
     .navbar .uk-offcanvas-bar h3 sub {
       font-size: 9px; }
     .navbar .uk-offcanvas-bar .uk-nav {
@@ -94,7 +94,7 @@ body, html {
     font-size: .8rem; }
 
 .footer p a {
-  color: #00B5B5; }
+  color: #8e44ad; }
 
 .signup .signup-img, .signup .signin-img, .signin .signup-img, .signin .signin-img {
   background: url("/img/signup.svg");
@@ -106,7 +106,7 @@ body, html {
     position: fixed;
     top: 5%;
     left: 3%;
-    color: #00B5B5;
+    color: #8e44ad;
     background: #fff;
     width: 40px;
     height: 40px;
@@ -123,7 +123,7 @@ body, html {
   margin-bottom: 8px; }
   .signup .signup-form .form-heading h2 .app-name, .signup .signin-form .form-heading h2 .app-name, .signin .signup-form .form-heading h2 .app-name, .signin .signin-form .form-heading h2 .app-name {
     font-weight: 900;
-    color: #00B5B5; }
+    color: #8e44ad; }
 
 .signup .signup-form .form-heading p, .signup .signin-form .form-heading p, .signin .signup-form .form-heading p, .signin .signin-form .form-heading p {
   margin: 0; }
@@ -164,8 +164,8 @@ body, html {
     color: #aaa; }
   .signup .signup-form .inputs .uk-input:focus, .signup .signin-form .inputs .uk-input:focus, .signin .signup-form .inputs .uk-input:focus, .signin .signin-form .inputs .uk-input:focus {
     background-color: #fff;
-    border-color: #00B5B5;
-    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25); }
+    border-color: #8e44ad;
+    box-shadow: 0 0 0 0.25rem rgba(142, 68, 173, 0.25); }
 
 .signup .signup-form .inputs .input .input-error, .signup .signin-form .inputs .input .input-error, .signin .signup-form .inputs .input .input-error, .signin .signin-form .inputs .input .input-error {
   border: 1px solid #dc3545 !important; }
@@ -185,7 +185,7 @@ body, html {
     cursor: pointer;
     text-transform: uppercase;
     font-size: 14px;
-    background: #00B5B5;
+    background: #8e44ad;
     color: #F3F3F3;
     border: none;
     height: 43px;
@@ -201,7 +201,7 @@ body, html {
       margin-left: 6px; }
   .signup .signup-form .inputs .signup-control .signup-btn a, .signup .signup-form .inputs .signup-control .signin-btn a, .signup .signup-form .inputs .signin-control .signup-btn a, .signup .signup-form .inputs .signin-control .signin-btn a, .signup .signin-form .inputs .signup-control .signup-btn a, .signup .signin-form .inputs .signup-control .signin-btn a, .signup .signin-form .inputs .signin-control .signup-btn a, .signup .signin-form .inputs .signin-control .signin-btn a, .signin .signup-form .inputs .signup-control .signup-btn a, .signin .signup-form .inputs .signup-control .signin-btn a, .signin .signup-form .inputs .signin-control .signup-btn a, .signin .signup-form .inputs .signin-control .signin-btn a, .signin .signin-form .inputs .signup-control .signup-btn a, .signin .signin-form .inputs .signup-control .signin-btn a, .signin .signin-form .inputs .signin-control .signup-btn a, .signin .signin-form .inputs .signin-control .signin-btn a {
     background: transparent;
-    color: #00B5B5;
+    color: #8e44ad;
     font-weight: 900;
     text-decoration: none; }
   .signup .signup-form .inputs .signup-control .have-account, .signup .signup-form .inputs .signup-control .create-account, .signup .signup-form .inputs .signin-control .have-account, .signup .signup-form .inputs .signin-control .create-account, .signup .signin-form .inputs .signup-control .have-account, .signup .signin-form .inputs .signup-control .create-account, .signup .signin-form .inputs .signin-control .have-account, .signup .signin-form .inputs .signin-control .create-account, .signin .signup-form .inputs .signup-control .have-account, .signin .signup-form .inputs .signup-control .create-account, .signin .signup-form .inputs .signin-control .have-account, .signin .signup-form .inputs .signin-control .create-account, .signin .signin-form .inputs .signup-control .have-account, .signin .signin-form .inputs .signup-control .create-account, .signin .signin-form .inputs .signin-control .have-account, .signin .signin-form .inputs .signin-control .create-account {
@@ -248,7 +248,7 @@ body, html {
 .admin-dashboard .form-content {
   padding: 50px; }
   .admin-dashboard .form-content h3 {
-    color: #00B5B5;
+    color: #8e44ad;
     font-weight: 900; }
   .admin-dashboard .form-content .uk-input {
     width: 100%;
@@ -277,8 +277,8 @@ body, html {
       color: #aaa; }
     .admin-dashboard .form-content .uk-input:focus {
       background-color: #fff;
-      border-color: #00B5B5;
-      box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25); }
+      border-color: #8e44ad;
+      box-shadow: 0 0 0 0.25rem rgba(142, 68, 173, 0.25); }
   .admin-dashboard .form-content .upload-btn {
     width: 100%;
     height: 50px;
@@ -289,7 +289,7 @@ body, html {
     cursor: pointer;
     text-transform: uppercase;
     font-size: 14px;
-    background: #00B5B5;
+    background: #8e44ad;
     color: #F3F3F3;
     border: none;
     height: 43px;
@@ -310,11 +310,11 @@ body, html {
     margin-bottom: 20px; }
     .home .filter .uk-select:focus {
       background-color: #fff;
-      border-color: #00B5B5; }
+      border-color: #8e44ad; }
   .home .filter a {
     font-size: 14px;
     text-decoration: none;
-    color: #00B5B5; }
+    color: #8e44ad; }
 
 .home .club .club-search input {
   width: 100%;
@@ -345,12 +345,12 @@ body, html {
     color: #aaa; }
   .home .club .club-search input:focus {
     background-color: #fff;
-    border-color: #00B5B5;
-    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25); }
+    border-color: #8e44ad;
+    box-shadow: 0 0 0 0.25rem rgba(142, 68, 173, 0.25); }
 
 .home .club .club-search i {
   margin-left: -45px;
-  color: #00B5B5;
+  color: #8e44ad;
   cursor: pointer; }
 
 .home .club .clubs .club-content .club-img {
@@ -366,7 +366,7 @@ body, html {
   cursor: pointer;
   text-transform: uppercase;
   font-size: 14px;
-  background: #00B5B5;
+  background: #8e44ad;
   color: #F3F3F3;
   border: none;
   padding: 5px 10px;
@@ -385,7 +385,7 @@ body, html {
   .group .myprofile .profile-footer a {
     font-size: 13px; }
     .group .myprofile .profile-footer a i {
-      color: #00B5B5;
+      color: #8e44ad;
       font-size: 15px;
       margin-right: 5px; }
 
@@ -448,8 +448,8 @@ body, html {
         color: #aaa; }
       .group .chating-box .message-box .uk-input:focus {
         background-color: #fff;
-        border-color: #00B5B5;
-        box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25); }
+        border-color: #8e44ad;
+        box-shadow: 0 0 0 0.25rem rgba(142, 68, 173, 0.25); }
     .group .chating-box .message-box button {
       position: absolute;
       top: 10px;
@@ -458,7 +458,7 @@ body, html {
       border: none;
       outline: none; }
       .group .chating-box .message-box button i {
-        color: #00B5B5;
+        color: #8e44ad;
         cursor: pointer;
         font-size: 30px; }
 
@@ -479,7 +479,7 @@ body, html {
 
 .group .club-fans .online-club .heading i {
   margin-right: 8px;
-  color: #00B5B5; }
+  color: #8e44ad; }
 
 .group .club-fans .online-club .uk-divider-small::after {
   border-bottom: 1px solid rgba(0, 0, 0, 0.09); }
