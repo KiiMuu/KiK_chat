@@ -27,15 +27,17 @@
             </div>
             <div class="uk-width-3-4@m">
                 <div class="club">
-                    <div class="club-search uk-margin-small-bottom">
-                        <input class="search-in" type="text" placeholder="Search in Clubs">
-                        <i class="fa fa-arrow-right" title="Search"></i>
-                    </div>
+                    <form action="/results" method="POST">
+                        <div class="club-search uk-margin-small-bottom">
+                            <input class="search-in" type="text" name="country" placeholder="Search in Clubs">
+                            <button><i class="fa fa-arrow-right" title="Search"></i></button>
+                        </div>
+                    </form>
                     <div class="clubs">
                         <form action="/clubs" method="POST" id="favorite">
                             <% if (chunks.length == 0) { %>
                                 <div class="uk-background-muted uk-padding uk-panel">
-                                    <p class="uk-h4 uk-text-center">There're no clubs yet.</p>
+                                    <p class="uk-h4 uk-text-center">There're no clubs</p>
                                 </div>
                             <% } else { %>
                                 <% chunks.forEach(club => { %>

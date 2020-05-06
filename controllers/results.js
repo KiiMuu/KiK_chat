@@ -11,7 +11,7 @@ exports.getResults = (req, res, next) => {
         (cb) => {
             const regex = new RegExp((req.body.country), 'gi');
 
-            Club.find({ 'country': regex }, (err, result) => {
+            Club.find({ '$or': [{'country': regex}, {'name': regex}] }, (err, result) => {
                 cb(err, result);
             });
         }
