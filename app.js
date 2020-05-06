@@ -9,7 +9,9 @@ const MongoDBStore = require('connect-mongodb-session')(session);
 const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const passport = require('passport');
+const _ = require('lodash');
 const { Users } = require('./helpers/UsersClass');
+const { Global } = require('./helpers/Global');
 
 const MONGO_URI = 'mongodb://localhost/kik-chat';
 
@@ -37,6 +39,7 @@ mongoose.connect(MONGO_URI, {
 // socket.io
 require('./socket/groupchat')(io, Users);
 require('./socket/friend')(io);
+require('./socket/globalroom')(io, Global, _);
 
 // get routes
 const usersRoutes = require('./routes/users');

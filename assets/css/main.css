@@ -378,16 +378,19 @@ body, html {
   padding: 30px; }
   .group .myprofile .profile-img {
     margin-bottom: 10px; }
-  .group .myprofile .profile-names h6 {
-    margin-bottom: 5px; }
-  .group .myprofile .profile-names h4 {
-    margin-bottom: 10px; }
   .group .myprofile .profile-footer a {
     font-size: 13px; }
     .group .myprofile .profile-footer a i {
       color: #8e44ad;
       font-size: 15px;
       margin-right: 5px; }
+  .group .myprofile .status .online-dot {
+    width: 10px;
+    height: 10px;
+    background: green;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px; }
 
 .group .online-friends {
   border: 1px solid #e2e2e2;
