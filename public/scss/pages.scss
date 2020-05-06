@@ -251,10 +251,12 @@
             }
             margin-bottom: 20px;
         }
-        a {
+        button {
             font-size: 14px;
             text-decoration: none;
             color: $mainColor;
+            cursor: pointer;
+            border: 1px solid #aaa;
         }
     }
     .club {

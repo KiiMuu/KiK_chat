@@ -305,10 +305,12 @@ body, html {
     .home .filter .uk-select:focus {
       background-color: #fff;
       border-color: #8e44ad; }
-  .home .filter a {
+  .home .filter button {
     font-size: 14px;
     text-decoration: none;
-    color: #8e44ad; }
+    color: #8e44ad;
+    cursor: pointer;
+    border: 1px solid #aaa; }
 
 .home .club .club-search input {
   width: 100%;

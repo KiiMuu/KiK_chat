@@ -1,5 +1,63 @@
 <%- include('./includes/head.ejs') %>
-<%- include('./includes/navigation.ejs') %>
+<div uk-sticky="sel-target: .navbar; cls-active: uk-navbar-sticky">
+    <div id="nav" class="navbar">
+        <div class="navbar-content">
+            <div class="uk-container">
+                <nav uk-navbar>
+                    <div class="uk-navbar-left">
+                        <a class="uk-navbar-item uk-logo uk-text-uppercase" href="/clubs">K<span class="uk-text-lowercase">i</span>K <sub>chat</sub></a>
+                    </div>
+                    <div class="uk-navbar-right" id="reload">
+                        <ul class="uk-navbar-nav uk-visible@m">
+                            <li><a href="/clubs">Clubs</a></li>
+                            <li>
+                                <a href="#" title="Notifications">
+                                    <i class="fa fa-bell"></i>
+                                </a>
+                                <div class="uk-width-large" uk-dropdown="mode: click; animation: uk-animation-slide-top-small;">
+                                    <div class="friend-requests">
+                                        <h6 class="uk-text-uppercase">Friend Requests</h6>
+                                        <div class="content">
+                                            <div class="uk-child-width-1-2" uk-grid>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#"><%= user.username %> <i class="fa fa-angle-down"></i></a>
+                                <div class="user-actions" uk-dropdown="mode: click; animation: uk-animation-slide-top-small;">
+                                    <ul class="uk-nav uk-dropdown-nav">
+                                        <li><a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li><a href="/signup">Sign Up</a></li>
+                            <li><a href="/signin">Sign In</a></li>
+                        </ul>
+                        <!-- Show Nav items in sidebar in phone screens -->
+                        <div class="uk-hidden@m">
+                            <button class="uk-button uk-button-default open-btn" type="button" uk-toggle="target: #offcanvas-overlay"><i class="fa fa-bars" aria-hidden="true"></i></button>
+                            <div id="offcanvas-overlay" uk-offcanvas="overlay: true">
+                                <div class="uk-offcanvas-bar">
+                                    <button class="uk-offcanvas-close" type="button" uk-close></button>
+                                    <h3 class="uk-text-uppercase">KiK <sub>chat</sub></h3>
+                                    <ul class="uk-nav uk-nav-default">
+                                        <li><a href="/clubs">Clubs</a></li>
+                                        <li><a href="/signup">Sign Up</a></li>
+                                        <li><a href="/signin">Sign In</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="home uk-margin-medium-top">
     <div class="uk-container">
         <div class="uk-grid-small" uk-grid>
@@ -14,9 +72,6 @@
                         <div class="filter-option">
                             <select class="uk-select" name="country" id="country">
                                 <option value="">Filter By Country</option>
-                                <% country.forEach(result => { %>
-                                    <option value="<%= result._id %>"><%= result._id %></option>
-                                <% }) %>
                             </select>
                         </div>
                         <div class="filter-button">

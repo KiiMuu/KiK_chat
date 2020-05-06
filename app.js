@@ -46,6 +46,7 @@ const usersRoutes = require('./routes/users');
 const adminRoutes = require('./routes/admin');
 const homeRoutes = require('./routes/home');
 const groupChat = require('./routes/group');
+const resultsRoutes = require('./routes/results');
 
 require('./config/passport-local');
 require('./config/passport-facebook');
@@ -76,6 +77,7 @@ app.use(usersRoutes);
 app.use(adminRoutes);
 app.use(homeRoutes);
 app.use(groupChat);
+app.use(resultsRoutes);
 
 // app listen
 const PORT = process.env.PORT || 3001;
