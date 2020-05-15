@@ -103,13 +103,18 @@ $(document).ready(() => {
         e.preventDefault();
 
         let msg = $('#msg').val();
-        socket.emit('createMessage', {
-            text: msg,
-            room,
-            sender
-        }, () => {
-            $('#msg').val('');
-        });
+
+        if (msg.trim().length > 0) {
+            socket.emit('createMessage', {
+                text: msg,
+                room,
+                sender
+            }, () => {
+                $('#msg').val('');
+            });
+        } else {
+            alert('Type something');
+        }
     });
 });
 $(document).ready(() => {
@@ -205,7 +210,24 @@ $(document).ready(() => {
             }, () => {
                 $('#msg').val('');
             });
+        } else {
+            alert('Type something');
         }
+    });
+
+    $('#send-message').on('click', () => {
+        let message = $('#msg').val();
+
+        $.ajax({
+            url: '/chat/'+paramOne,
+            type: 'POST',
+            data: {
+                message
+            },
+            success: () => {
+                $('#msg').val('');
+            }
+        });
     });
 });
 
