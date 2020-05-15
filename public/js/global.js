@@ -16,7 +16,7 @@ $(document).ready(() => {
     socket.on('loggedInUser', function(users) {
         let friends = $('.friend').text();
         let friend = friends.split('@');
-        let name = $('#name-user').val();
+        let name = $('#name-user').val().toLowerCase();
 
         let ol = $('<div></div>');
         let arr = [];
@@ -24,8 +24,11 @@ $(document).ready(() => {
         for (let i = 0; i < users.length; i++) {
             if (friend.indexOf(users[i].name) > -1) {
                 arr.push(users[i]);
-                let list = '<img src="http://placehold.it/40" class="uk-border-circle uk-text-left" style="width: 40px; float: left; margin-right: 15px" /><p>' +
-                '<a id="val" href="/chat"><h3 style="padding-top: 5px; font-size: 20px">'+'@'+users[i].name+'</h3></a></p>';
+
+                let userName = users[i].name.toLowerCase();
+
+                let list = '<img src="https://placehold.it/40" class="uk-border-circle uk-text-left" style="width: 40px; float: left; margin-right: 15px;" /><a href="/chat/'+userName.replace(/ /g, "-")+'.'+name.replace(/ /g, "-")+'"><h3 style="padding-top: 5px; font-size: 20px; color: #1e87f0;">'+'@'+users[i].name+'</h3></a>'
+                
                 ol.append(list);
             }
         }

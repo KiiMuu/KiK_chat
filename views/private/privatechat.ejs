@@ -1,0 +1,81 @@
+<%- include('../includes/head.ejs') %>
+<%- include('../includes/navigation.ejs') %>
+<div class="group">
+    <div class="">
+        <div class="uk-grid-small" uk-grid>
+            <div class="uk-width-1-4@m">
+                <input type="hidden" id="name-user" value="<%= user.username %>">
+                <input type="hidden" id="name-image" value="<%= user.userImage %>">
+                <div class="myprofile uk-margin-small-bottom uk-box-shadow-medium uk-text-center">
+                    <div class="profile-img">
+                        <img class="uk-border-circle" src="https://via.placeholder.com/100" alt="" draggable="false">
+                    </div>
+                    <div class="profile-names">
+                        <div class="username">
+                            <h4><%= user.username %></h4>
+                        </div>
+                    </div>
+                    <div class="status">
+                        <div class="uk-text-center"><span class="online-dot"></span> Online</div>
+                    </div>
+                    <hr class="uk-divider-small">
+                    <div class="profile-footer">
+                        <a href="#" class="uk-button uk-button-text"><i class="fa fa-user"></i> My Profile</a>
+                    </div>
+                </div>
+                <div class="online-friends uk-margin-small-bottom uk-box-shadow-medium">
+                    <div class="heading">
+                        <h6 class="uk-text-uppercase"><span class="online-dot"></span> Online Friends <span id="numOfFriends"></span></h6>
+                        <hr class="uk-divider-small">
+                        <% if (data.friendList.length > 0) { %>
+                            <% data.friendList.forEach(val => { %>
+                                <div class="friend" hidden>@<%= val.friendName %></div>
+                            <% }) %>
+                        <% } %>
+                        
+                        <div class="onlineFriends"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="uk-width-3-4@m">
+                <div class="chating-box uk-box-shadow-medium">
+                    <div class="chating-box-top">
+                        <div class="uk-child-width-1-2" uk-grid>
+                            <div class="uk-text-left">
+                                <h6 class="uk-text-uppercase" id="reciever_name"></h6>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="uk-divider-small">
+                    <div class="chat-area">
+                        <ul id="messages" class="uk-list"></ul>
+                        <script id="message-template" type="text/template">
+                            <li class="uk-flex">
+                                <span class="chat-img uk-margin-small-right">
+                                    <img src="http://placehold.it/40" class="uk-border-circle" alt="">
+                                </span>
+                                <div class="chat-body">
+                                    <span class="chat-name">{{sender}}</span>
+                                    <div class="message-content">{{text}}</div>
+                                </div>
+                            </li>
+                        </script>
+                    </div>
+                    <div class="message-box">
+                        <form id="message_form" method="POST">
+                            <input 
+                                class="uk-input" 
+                                type="text" 
+                                name="message" 
+                                id="msg" 
+                                placeholder="Type a message"
+                            >
+                            <button id="send-message" title="Send"><i class="fa fa-telegram" aria-hidden="true"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('../includes/end.ejs') %>

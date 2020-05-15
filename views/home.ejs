@@ -45,7 +45,7 @@
                                         <% club.forEach(club2 => { %>
                                             <div class="club-content">
                                                 <div class="club-img">
-                                                    <a href="/group/<%= club2.name %>" title="Go to <%= club2.name %> Club">
+                                                    <a href="/group/<%= club2.name.replace(/ /g, '-') %>" title="Go to <%= club2.name %> Club">
                                                         <img src="<%= club2.image %>" alt="<%= club2.name %>" draggable="false">
                                                     </a>
                                                 </div>

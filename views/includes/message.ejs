@@ -1,0 +1,39 @@
+<li>
+    <a href="#" title="Notifications">
+        <i class="fa fa-comments"></i>
+        <% if (data.totalRequest > 0) { %>
+            <span class="uk-badge"><%= data.request.length %></span>
+        <% } %>
+    </a>
+    <div class="uk-width-large" uk-dropdown="mode: click; animation: uk-animation-slide-top-small;">
+        <div class="friend-requests">
+            <h6 class="uk-text-uppercase">Friend Messages</h6>
+            <div class="content">
+                <div class="uk-child-width-1-2" uk-grid>
+                    <% if (data.request.length > 0) { %>
+                        <% data.request.forEach(val => { %>
+                            <div class="friend-img uk-text-left">
+                                <img src="http://placehold.it/40" alt="<%= val.username %>">
+                                <div>
+                                    <a href="#" title="View Profile"><span><%= val.username %></span></a>
+                                </div>
+                            </div>
+                            <div class="action uk-text-right">
+                                <input type="hidden" name="senderId" id="senderId" value="<%= val.userId._id %>">
+                                <input type="hidden" name="senderName" id="senderName" value="<%= val.username %>">
+                                <button type="submit" name="accept" id="accept-friend" title="Accept" class="accept"><i class="fa fa-check"></i></button>
+
+                                <input type="hidden" name="user_id" id="user_id" value="<%= val.userId._id %>">
+                                <button type="submit" name="decline" id="decline-friend" title="Decline" class="decline"><i class="fa fa-times"></i></button>
+                            </div>
+                        <% }) %>
+                    <% } else { %>
+                        <div class="uk-width-1-1" uk-grid>
+                            <p class="uk-text-muted">You haven't any friend messages.</p>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>

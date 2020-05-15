@@ -40,6 +40,7 @@ mongoose.connect(MONGO_URI, {
 require('./socket/groupchat')(io, Users);
 require('./socket/friend')(io);
 require('./socket/globalroom')(io, Global, _);
+require('./socket/privatemessage')(io);
 
 // get routes
 const usersRoutes = require('./routes/users');
@@ -47,6 +48,7 @@ const adminRoutes = require('./routes/admin');
 const homeRoutes = require('./routes/home');
 const groupChat = require('./routes/group');
 const resultsRoutes = require('./routes/results');
+const privateChat = require('./routes/privatechat');
 
 require('./config/passport-local');
 require('./config/passport-facebook');
@@ -59,9 +61,9 @@ app.use('/img', express.static(path.join(__dirname, 'img')));
 app.use(express.static(path.join(__dirname, '/public/uploads')));
 app.use(cookieParser());
 app.use(session({
-    secret: 'mustbesecrethuh',
-    resave: false,
-    saveUninitialized: false,
+    secret: 'thisIsSoSecured',
+    resave: true,
+    saveUninitialized: true,
     store
 }));
 app.use(flash());
@@ -78,6 +80,7 @@ app.use(adminRoutes);
 app.use(homeRoutes);
 app.use(groupChat);
 app.use(resultsRoutes);
+app.use(privateChat);
 
 // app listen
 const PORT = process.env.PORT || 3001;
