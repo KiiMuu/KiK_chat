@@ -1,8 +1,16 @@
+<% var numberOfTrue = 0 %>
+
+<% for (let i = 0; i < chat.length; i++) {
+    if (chat[i].body.isRead === false) {
+        numberOfTrue += 1;
+    }
+} %>
+
 <li>
     <a href="#" title="Messages">
         <i class="fa fa-comments"></i>
-        <% if (data.totalRequest > 0) { %>
-            <span class="uk-badge"><%= data.request.length %></span>
+        <% if (numberOfTrue > 0) { %>
+            <span class="uk-badge"><%= numberOfTrue %></span>
         <% } %>
     </a>
     <div class="uk-width-large" uk-dropdown="mode: click; animation: uk-animation-slide-top-small;">
@@ -10,8 +18,8 @@
             <h6 class="uk-text-uppercase">Friend Messages</h6>
             <div class="content">
                 <div class="uk-child-width-1-2" uk-grid>
-                    <% if (data.request.length > 0) { %>
-                        <% data.request.forEach(val => { %>
+                    <% if (numberOfTrue !== 0) { %>
+                        <% chat.forEach(val => { %>
                             <div class="friend-img uk-text-left">
                                 <img src="http://placehold.it/40" alt="<%= val.username %>">
                                 <div>

@@ -12,57 +12,55 @@ exports.getChatPage = (req, res, next) => {
         },
 
         (cb) => {
-            Message.aggregate(
+            const nameRegex = new RegExp("^" + req.user.username.toLowerCase(), "i")
+            Message.aggregate([
                 {
-                    // $match => make a condition
                     $match: {
-                        // $or => at least match one of the following expressions
                         $or: [
-                            {'senderName': req.user.username},
-                            {'recieverName': req.user.username}
+                            {"senderName": nameRegex}, 
+                            {"recieverName": nameRegex}
                         ]
                     }
                 },
-                // $sort => sort data by createdAt field - recent
-                {$sort: {
-                    'createdAt': -1
-                }},
                 {
-                    $group: {
-                        '_id': {
-                            'last_message_between': {
-                                $cond: [
-                                    {
-                                        // $gt => greater than
-                                        $gt: [
-                                            // $senderName => the string
-                                            // 0 => start the position of the string, 1 => length
-                                            {$substr: ['$senderName', 0, 1]},
-                                            {$substr: ['$recieverName', 0, 1]},
-                                        ]
-                                    },
-                                    {$concat: ['$senderName', ' and ', '$recieverName']},
-                                    {$concat: ['$recieverName', ' and ', '$senderName']}
-                                ]
-                            },
-                            'body': {
-                                $first: '$$ROOT'
-                            }
-                        }
+                    $sort: {
+                        "createdAt": -1
                     }
                 },
-                (err, newResult) => {
+                {
+                    $group: {
+                        "_id": {
+                            "last_message_between": {
+                                $cond: [{
+                                    $gt: [
+                                        {$substr: ["$senderName", 0, 1]},
+                                        {$substr: ["$recieverName", 0, 1]}
+                                    ]},
+
+                                    {$concat: ["$senderName", " and ", "$recieverName"]},
+                                    {$concat: ["$recieverName", " and ", "$senderName"]}
+                                ]
+                            }
+                        }, 
+                        "body": {
+                            $first: "$$ROOT"
+                        }
+                    }
+                }], (err, newResult) => {
+                    console.log(newResult);
                     cb(err, newResult);
                 }
             )
         }
     ], (err, results) => {
         const result1 = results[0];
+        const result2 = results[1];
         
         res.render('private/privatechat', {
             pageTitle: 'Private Chat',
             user: req.user,
-            data: result1
+            data: result1,
+            chat: result2
         });
     });
 }
