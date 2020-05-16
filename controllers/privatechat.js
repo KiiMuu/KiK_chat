@@ -9,6 +9,52 @@ exports.getChatPage = (req, res, next) => {
             Users.findOne({ 'username': req.user.username }).populate('request.userId').exec((err, result) => {
                 cb(err, result);
             });
+        },
+
+        (cb) => {
+            Message.aggregate(
+                {
+                    // $match => make a condition
+                    $match: {
+                        // $or => at least match one of the following expressions
+                        $or: [
+                            {'senderName': req.user.username},
+                            {'recieverName': req.user.username}
+                        ]
+                    }
+                },
+                // $sort => sort data by createdAt field - recent
+                {$sort: {
+                    'createdAt': -1
+                }},
+                {
+                    $group: {
+                        '_id': {
+                            'last_message_between': {
+                                $cond: [
+                                    {
+                                        // $gt => greater than
+                                        $gt: [
+                                            // $senderName => the string
+                                            // 0 => start the position of the string, 1 => length
+                                            {$substr: ['$senderName', 0, 1]},
+                                            {$substr: ['$recieverName', 0, 1]},
+                                        ]
+                                    },
+                                    {$concat: ['$senderName', ' and ', '$recieverName']},
+                                    {$concat: ['$recieverName', ' and ', '$senderName']}
+                                ]
+                            },
+                            'body': {
+                                $first: '$$ROOT'
+                            }
+                        }
+                    }
+                },
+                (err, newResult) => {
+                    cb(err, newResult);
+                }
+            )
         }
     ], (err, results) => {
         const result1 = results[0];
