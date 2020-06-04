@@ -1,6 +1,7 @@
 const async = require('async');
 
 const Users = require('../models/user');
+const Message = require('../models/message');
 
 exports.groupPage = (req, res, next) => {
     const name = req.params.name;
@@ -10,15 +11,59 @@ exports.groupPage = (req, res, next) => {
             Users.findOne({ 'username': req.user.username }).populate('request.userId').exec((err, result) => {
                 cb(err, result);
             });
-        }
+        },
+
+        (cb) => {
+            const nameRegex = new RegExp("^" + req.user.username.toLowerCase(), "i")
+            Message.aggregate([
+                {
+                    $match: {
+                        $or: [
+                            {"senderName": nameRegex}, 
+                            {"recieverName": nameRegex}
+                        ]
+                    }
+                },
+                {
+                    $sort: {
+                        "createdAt": -1
+                    }
+                },
+                {
+                    $group: {
+                        "_id": {
+                            "last_message_between": {
+                                $cond: [{
+                                    $gt: [
+                                        {$substr: ["$senderName", 0, 1]},
+                                        {$substr: ["$recieverName", 0, 1]}
+                                    ]},
+
+                                    {$concat: ["$senderName", " and ", "$recieverName"]},
+                                    {$concat: ["$recieverName", " and ", "$senderName"]}
+                                ]
+                            }
+                        }, 
+                        "body": {
+                            $first: "$$ROOT"
+                        }
+                    }
+                }], (err, newResult) => {
+                    console.log(newResult);
+                    cb(err, newResult);
+                }
+            )
+        },
     ], (err, results) => {
         const result1 = results[0];
+        const result2 = results[1];
         
         res.render('groupchat/group', {
             pageTitle: 'Group',
             groupName: name,
             user: req.user,
-            data: result1
+            data: result1,
+            chat: result2
         });
     });
 }

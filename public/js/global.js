@@ -11,6 +11,10 @@ $(document).ready(() => {
             name,
             img
         });
+
+        socket.on('message display', () => {
+            $('#reload').load(location.href + ' #reload');
+        });
     });
 
     socket.on('loggedInUser', function(users) {

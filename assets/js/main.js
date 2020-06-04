@@ -23,6 +23,10 @@ $(document).ready(() => {
             name,
             img
         });
+
+        socket.on('message display', () => {
+            $('#reload').load(location.href + ' #reload');
+        });
     });
 
     socket.on('loggedInUser', function(users) {
@@ -183,6 +187,9 @@ $(document).ready(() => {
         }
 
         socket.emit('join PM', params);
+        socket.on('message display', () => {
+            $('#reload').load(location.href + ' #reload');
+        });
     });
 
     socket.on('new message', data => {

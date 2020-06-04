@@ -11,6 +11,8 @@ module.exports = io => {
                 sender: message.sender
             });
 
+            io.emit('message display', {});
+
             callback();
         });
     });

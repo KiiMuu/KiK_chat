@@ -18,21 +18,49 @@
             <h6 class="uk-text-uppercase">Friend Messages</h6>
             <div class="content">
                 <div class="uk-child-width-1-2" uk-grid>
-                    <% if (numberOfTrue !== 0) { %>
+                    <% if (chat.length > 0) { %>
                         <% chat.forEach(val => { %>
-                            <div class="friend-img uk-text-left">
-                                <img src="http://placehold.it/40" alt="<%= val.username %>">
-                                <div>
-                                    <a href="#" title="View Profile"><span><%= val.username %></span></a>
+                            <% if (user.username !== val.body.senderName) { %>
+                                <div class="friend-img uk-text-left">
+                                    <img src="http://placehold.it/40" alt="<%= val.username %>">
+                                    <div>
+                                        <a href="#" title="View Profile"><span>
+                                            <% if (user.username !== val.body.recieverName) { %>
+                                                <%= val.body.recieverName %>
+                                            <% } else { %>
+                                                <%= val.body.senderName %>
+                                            <% } %>
+                                        </span></a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="action uk-text-right">
-                                message here
-                            </div>
+                                <div class="message uk-text-right">
+                                    <a href="/chat/<%= val.body.senderName.toLowerCase() %>.<%= user.username.toLowerCase() %>" class="uk-text-muted">
+                                        <%= val.body.message %>
+                                    </a>
+                                </div>
+                            <% } else if (user.username === val.body.senderName) { %>
+                                <div class="friend-img uk-text-left">
+                                    <img src="http://placehold.it/40" alt="<%= val.username %>">
+                                    <div>
+                                        <a href="#" title="View Profile"><span>
+                                            <% if (user.username !== val.body.recieverName) { %>
+                                                <%= val.body.recieverName %>
+                                            <% } else { %>
+                                                <%= val.body.senderName %>
+                                            <% } %>
+                                        </span></a>
+                                    </div>
+                                </div>
+                                <div class="message uk-text-right">
+                                    <a href="/chat/<%= val.body.recieverName.toLowerCase() %>.<%= user.username.toLowerCase() %>" class="uk-text-muted">
+                                        <%= val.body.message %>
+                                    </a>
+                                </div>
+                            <% } %>
                         <% }) %>
                     <% } else { %>
                         <div class="uk-width-1-1" uk-grid>
-                            <p class="uk-text-muted">You haven't any friend messages.</p>
+                            <p class="uk-text-muted">You haven't any messages.</p>
                         </div>
                     <% } %>
                 </div>
