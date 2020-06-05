@@ -1,4 +1,4 @@
-##### KiK Chat App
+# KiK Chat App
 
 App includes:
 <ul>
