@@ -63,5 +63,17 @@ $(document).ready(() => {
         } else {
             alert('Type something');
         }
+
+        $.ajax({
+            url: '/group/'+room,
+            type: 'POST',
+            data: {
+                message: msg,
+                groupName: room
+            },
+            success: () => {
+                $('#msg').val('');
+            }
+        });
     });
 });

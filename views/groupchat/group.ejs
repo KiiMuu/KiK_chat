@@ -80,7 +80,21 @@
                     </div>
                     <hr class="uk-divider-small">
                     <div class="chat-area">
-                        <ul id="messages" class="uk-list"></ul>
+                        <ul id="messages" class="uk-list">
+                            <% groupMsg.forEach(val => { %>
+                                <% if (groupName === val.name) { %>
+                                    <li class="uk-flex">
+                                        <span class="chat-img uk-margin-small-right">
+                                            <img src="http://placehold.it/40" class="uk-border-circle" alt="">
+                                        </span>
+                                        <div class="chat-body">
+                                            <span class="chat-name"><%= val.sender.username %></span>
+                                            <div class="message-content"><%= val.body %></div>
+                                        </div>
+                                    </li>
+                                <% } %>
+                            <% }) %>
+                        </ul>
                         <script id="message-template" type="text/template">
                             <li class="uk-flex">
                                 <span class="chat-img uk-margin-small-right">
@@ -95,7 +109,7 @@
                     </div>
                     <div class="message-box">
                         <form id="message-form" method="POST">
-                            <input type="hidden" id="groupName" value="<%= groupName %>">
+                            <input type="hidden" name="groupName" id="groupName" value="<%= groupName %>">
                             <input type="hidden" name="groupName" id="sender" value="<%= user.username %>">
 
                             <input 

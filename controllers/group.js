@@ -2,6 +2,7 @@ const async = require('async');
 
 const Users = require('../models/user');
 const Message = require('../models/message');
+const GroupMessage = require('../models/groupMessage');
 
 exports.groupPage = (req, res, next) => {
     const name = req.params.name;
@@ -54,16 +55,24 @@ exports.groupPage = (req, res, next) => {
                 }
             )
         },
+
+        (cb) => {
+            GroupMessage.find({}).populate('sender').exec((err, result) => {
+                cb(err, result);
+            });
+        }
     ], (err, results) => {
         const result1 = results[0];
         const result2 = results[1];
+        const result3 = results[2];
         
         res.render('groupchat/group', {
             pageTitle: 'Group',
             groupName: name,
             user: req.user,
             data: result1,
-            chat: result2
+            chat: result2,
+            groupMsg: result3
         });
     });
 }
@@ -215,6 +224,30 @@ exports.groupPostPage = (req, res, next) => {
         }
     ], (err, results) => {
         res.redirect(`/group/${req.params.name}`);
+    });
+
+    async.parallel([
+        (data, cb) => {
+            if (req.body.message) {
+                const newMessage = new GroupMessage({
+                    sender: req.user._id,
+                    body: req.body.message,
+                    name: req.body.groupName,
+                    createdAt: new Date()
+                });
+
+                newMessage.save((err, msg) => {
+                    if (err) {
+                        return next(err);
+                    }
+
+                    console.log(msg);
+                    cb(err, msg);
+                });
+            }
+        }
+    ], (err, results) => {
+        res.redirect('/group/'+req.params.name);
     });
 }
 
